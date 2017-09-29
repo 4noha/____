@@ -3,26 +3,29 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 import android.content.Intent;
 import android.widget.TextView;
 
-import com.dmm.noaki_takuya.internshipbaseapplication.MainActivity;
+import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
-import com.dmm.noaki_takuya.internshipbaseapplication.SecondActivity;
+import com.dmm.noaki_takuya.internshipbaseapplication.RecipeMenuActivity;
 
 /**
  * Created by noaki-takuya on 2017/09/27.
  */
 
-public class InternshipFirstClass {
+public class ChoiceHouseLogic {
     // シングルトンパターン
-    private static InternshipFirstClass singleton = new InternshipFirstClass();
+    private static ChoiceHouseLogic singleton = new ChoiceHouseLogic();
     // どこから呼んでも同じインスタンスが参照できる
-    public static InternshipFirstClass instance(){
+    public static ChoiceHouseLogic instance(){
         return singleton;
     }
 
+    
+    public String houseName;
 
-    public void onCreate(MainActivity activity){
+
+    public void onCreate(ChoiceHouseActivity activity){
         // activity_main.xmlのデザインをMainActivityに読み込み
-        activity.setContentView(R.layout.activity_main);
+        activity.setContentView(R.layout.activity_choice);
 
         // idでTextViewを取得、TextView型に変換
         TextView textArea = (TextView)( activity.findViewById(R.id.text_area) );
@@ -31,10 +34,11 @@ public class InternshipFirstClass {
     }
 
     // ボタンが押されたとき
-    public void buttonClick(MainActivity activity) {
+    public void toMenu(ChoiceHouseActivity activity, String houseName) {
+        this.houseName = houseName;
 
-        // SecondActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
-        Intent intent = new Intent(activity, SecondActivity.class);
+        // 次のActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
+        Intent intent = new Intent(activity, RecipeMenuActivity.class);
         activity.startActivity(intent);
     }
 }
