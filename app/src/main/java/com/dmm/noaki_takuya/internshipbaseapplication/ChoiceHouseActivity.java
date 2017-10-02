@@ -1,23 +1,27 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
+import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
-import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.HousePagerAdapter;
+import com.tmall.ultraviewpager.UltraViewPager;
 
 /////////////
 // 最初の画面
 /////////////
 
-public class ChoiceHouseActivity extends AppCompatActivity {
+public class ChoiceHouseActivity extends AppCompatActivity{
 
     // 自分自身のインスタンスを入れておく用
     private ChoiceHouseActivity activity;
-
+    // スワイプジェスチャーの検知用
+    GestureDetector gesture;
+    private UltraViewPager housePager;
+    private PagerAdapter adapter;
 
 
     @Override
@@ -30,40 +34,57 @@ public class ChoiceHouseActivity extends AppCompatActivity {
         ChoiceHouseLogic.instance().onCreate(activity);
 
 
-
-
         /////////////////////////
-        ///  ボタンイベント設定
+        ///  家の選択カルーセル
         /////////////////////////
-        // えびボタン
-        Button editButton = (Button)findViewById(R.id.house1);
-        editButton.setOnClickListener(new View.OnClickListener() {
+
+        // カルーセル本体
+        housePager = (UltraViewPager) activity.findViewById(R.id.ultra_viewpager);
+        // カルーセルのスクロール方向(水平)
+        housePager.setScrollMode(UltraViewPager.ScrollMode.HORIZONTAL);
+        // 家データ流し込みクラスのインスタンス生成
+        adapter = new HousePagerAdapter(false);
+        // 家データ流し込み
+        housePager.setAdapter(adapter);
+        // スクロールアニメーションスピード
+        housePager.setInfiniteRatio(100);
+
+
+
+        // activityのどこをクリックしても家を選択したことになるイベントを設定
+        gesture = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
             @Override
-            public void onClick(View v) {
-                ChoiceHouseLogic.instance().toMenu(activity, "SUGIYAMA");
+            public boolean onSingleTapConfirmed(MotionEvent e) {
+                // pagerから要素番号を取得
+                int position = housePager.getCurrentItem();
+                // houseNamesから現在選択されている家の名前を取得
+                String houseName = ChoiceHouseLogic.instance().houseNames[position];
+                // RecipeMenuに遷移
+                ChoiceHouseLogic.instance().toMenu(activity, houseName);
+
+                return false;
             }
         });
+    }
 
+    // Activity.dispatchTouchEvent()
+    // ViewGroup.dispatchTouchEvent()
+    // View.dispatchTouchEvent()
+    // View.onTouchEvent()
+    // ViewGroup.onTouchEvent()
+    // Activity.onTouchEvent()
+    // タッチイベントは上記の順番で呼ばれる。housePagerに使っているライブラリ、UltraPagerはViewGroup層の
+    // dispatchTouchEventで以降のイベントを握りつぶす汚い実装だったのでActivity層のdispatchTouchEventで
+    // イベントを取り返している。イベントが発火しないのでUltraPagerのソースコードを読み込んで発覚した。
+    // Android UIではこういうことがよくあるのでUIの外部ライブラリは極力使いたくない。。。
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        // Activity.dispatchTouchEventを呼んだことで逆にUltraPagerのdispatchTouchEventを殺さないように
+        // ここで呼ぶ
+        housePager.dispatchTouchEvent(event);
+        // GestureDetectorのイベントを発火させるにはonTouchEventにMotionEventを渡してあげないといけない
+        gesture.onTouchEvent(event);
 
-        // やまボタン
-        Button cookedButton = (Button)findViewById(R.id.house2);
-        cookedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ChoiceHouseLogic.instance().toMenu(activity, "YAMASAKI");
-                Log.v("Button","onClick");
-            }
-        });
-
-
-        // すぎボタン
-        Button mailButton = (Button)findViewById(R.id.house3);
-        mailButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ChoiceHouseLogic.instance().toMenu(activity, "SUGIYAMA");
-                Log.v("Button","onClick");
-            }
-        });
+        return false;
     }
 }

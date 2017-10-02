@@ -1,7 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.content.Intent;
-import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
@@ -20,21 +19,18 @@ public class ChoiceHouseLogic {
     }
 
     
-    public String houseName;
+    public String   houseName;
+    public String[] houseNames = {"えび家", "やま家"};
 
 
     public void onCreate(ChoiceHouseActivity activity){
         // activity_main.xmlのデザインをMainActivityに読み込み
         activity.setContentView(R.layout.activity_choice);
-
-        // idでTextViewを取得、TextView型に変換
-        TextView textArea = (TextView)( activity.findViewById(R.id.text_area) );
-        // 文字をせってい
-        textArea.setText("最初のがめんだよ！");
     }
 
     // ボタンが押されたとき
     public void toMenu(ChoiceHouseActivity activity, String houseName) {
+        // 選択中のhouseNameを更新
         this.houseName = houseName;
 
         // 次のActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
