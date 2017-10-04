@@ -4,6 +4,9 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.ThankYouLogic;
 
 public class ThankyouActivity extends AppCompatActivity {
 
@@ -18,9 +21,21 @@ public class ThankyouActivity extends AppCompatActivity {
 
         // 自分自身をインスタンス変数として保持
         activity = this;
-
         activity.setContentView(R.layout.activity_thankyou);
 
+
+        // idでbuttonを取得
+        Button mailButton = (Button)findViewById(R.id.to_mail);
+        // お礼メール送信のイベントを設定
+        mailButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThankYouLogic.instance().toMail(activity);
+            }
+        });
+
+
+        // 画面全体のイベントを設定
         ConstraintLayout page = (ConstraintLayout) activity.findViewById(R.id.thankyoupage);
         page.setOnClickListener(new View.OnClickListener() {
             @Override
