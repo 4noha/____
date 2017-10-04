@@ -3,8 +3,8 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 import android.content.Intent;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
+import com.dmm.noaki_takuya.internshipbaseapplication.ImHomeActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
-import com.dmm.noaki_takuya.internshipbaseapplication.RecipeMenuActivity;
 
 /**
  * Created by noaki-takuya on 2017/09/27.
@@ -18,9 +18,10 @@ public class ChoiceHouseLogic {
         return singleton;
     }
 
-    
+
+    public String   myHouse    = "すぎ";
+    public String[] houseNames = {"えび", "やま", "すぎ"};
     public String   houseName;
-    public String[] houseNames = {"えび家", "やま家"};
 
 
     public void onCreate(ChoiceHouseActivity activity){
@@ -28,13 +29,14 @@ public class ChoiceHouseLogic {
         activity.setContentView(R.layout.activity_choice);
     }
 
+
     // ボタンが押されたとき
-    public void toMenu(ChoiceHouseActivity activity, String houseName) {
+    public void toHome(ChoiceHouseActivity activity, String houseName) {
         // 選択中のhouseNameを更新
         this.houseName = houseName;
 
         // 次のActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
-        Intent intent = new Intent(activity, RecipeMenuActivity.class);
+        Intent intent = new Intent(activity, ImHomeActivity.class);
         activity.startActivity(intent);
     }
 }

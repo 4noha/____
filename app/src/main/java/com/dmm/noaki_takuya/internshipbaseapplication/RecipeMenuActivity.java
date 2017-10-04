@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeMenuLogic;
 
 public class RecipeMenuActivity extends AppCompatActivity {

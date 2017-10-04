@@ -1,12 +1,5 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.Model;
 
-import android.widget.TextView;
-
-import com.dmm.noaki_takuya.internshipbaseapplication.R;
-import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
-import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
-import com.dmm.noaki_takuya.internshipbaseapplication.logic.Export;
-import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeMenuLogic;
 
 import java.io.Serializable;
 

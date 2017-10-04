@@ -1,10 +1,12 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
+import android.content.Intent;
 import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
+import com.dmm.noaki_takuya.internshipbaseapplication.ThankyouActivity;
 
 import java.util.ArrayList;
 
@@ -60,8 +62,9 @@ public class RecipeLogic {
 
     // cookedボタン
     public void cooked(RecipeActivity activity) {
-        // まえのがっめんに戻る
-        activity.finish();
+        // 次のActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
+        Intent intent = new Intent(activity, ThankyouActivity.class);
+        activity.startActivity(intent);
     }
 
     // メールボタン

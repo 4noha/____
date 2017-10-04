@@ -60,7 +60,7 @@ public class ChoiceHouseActivity extends AppCompatActivity{
                 // houseNamesから現在選択されている家の名前を取得
                 String houseName = ChoiceHouseLogic.instance().houseNames[position];
                 // RecipeMenuに遷移
-                ChoiceHouseLogic.instance().toMenu(activity, houseName);
+                ChoiceHouseLogic.instance().toHome(activity, houseName);
 
                 return false;
             }

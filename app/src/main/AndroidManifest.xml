@@ -26,10 +26,18 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".ImHomeActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+
         <activity
             android:name=".RecipeMenuActivity"
             android:label="@string/app_name" >
         </activity>
+
 
         <activity
             android:name=".RecipeActivity"
@@ -54,6 +62,14 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name=".ThankyouActivity"
+            android:label="@string/app_name" >
+        </activity>
+
+
+
         <!-- FileProvider:ファイルを扱う為のマネージャー -->
         <!-- このアプリだけが使えるディレクトリにあるファイルを他のアプリに一時的にアクセス許可を出してくれる -->
         <!-- 今回はメールアプリにレシピを送るときに使っている -->
@@ -67,5 +83,4 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
-
 </manifest>
