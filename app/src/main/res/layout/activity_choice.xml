@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity">
@@ -10,17 +11,19 @@
 
     <com.tmall.ultraviewpager.UltraViewPager
         android:id="@+id/ultra_viewpager"
-        android:layout_width="match_parent"
+        android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:onClick="click"
-        android:background="@android:color/darker_gray" />
+        android:background="@android:color/darker_gray"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" />
 
     <Spinner
         android:id="@+id/indicator"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_weight="1" />
+        android:layout_height="495dp"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="0dp" />
 </android.support.constraint.ConstraintLayout>

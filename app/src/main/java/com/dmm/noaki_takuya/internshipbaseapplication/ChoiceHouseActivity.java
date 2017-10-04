@@ -80,7 +80,7 @@ public class ChoiceHouseActivity extends AppCompatActivity{
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         // Activity.dispatchTouchEventを呼んだことで逆にUltraPagerのdispatchTouchEventを殺さないように
-        // ここで呼ぶ
+        // ここで呼ぶ。ただActivityのEventなので普通に渡してしまうと画面のどこを操作してもイベントが走る
         housePager.dispatchTouchEvent(event);
         // GestureDetectorのイベントを発火させるにはonTouchEventにMotionEventを渡してあげないといけない
         gesture.onTouchEvent(event);

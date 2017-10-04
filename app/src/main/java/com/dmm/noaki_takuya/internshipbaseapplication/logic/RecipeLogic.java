@@ -2,8 +2,11 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.widget.TextView;
 
+import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
+
+import java.util.ArrayList;
 
 /**
  * Created by noaki-takuya on 2017/09/27.
@@ -18,13 +21,22 @@ public class RecipeLogic {
     }
 
 
-    public String houseName;
-    public String recipeName;
-
+    public static ArrayList<Recipe> recipes = new ArrayList();
 
     public void onCreate(RecipeActivity activity){
         // activity_recipe.xmlのデザインをRecipeActivityに読み込み
         activity.setContentView(R.layout.activity_recipe);
+
+        Recipe recipe = new Recipe();
+        recipe.houseName = "杉山";
+        recipe.howToUse = "1.2.3.";
+        recipe.recipeName = "オムレツ";
+        recipes.add(recipe);
+        recipe = new Recipe();
+        recipe.houseName = "蛯谷";
+        recipe.howToUse = "1.2.3.";
+        recipe.recipeName = "オム";
+        recipes.add(recipe);
 
 
         // どのレシピを選んだかを取得
@@ -54,7 +66,7 @@ public class RecipeLogic {
 
     // メールボタン
     public void toMail(RecipeActivity activity) {
-        // まえのがっめんに戻る
-        activity.finish();
+        // メールアプリにレシピを投げる
+        Export.callMailIntent(activity);
     }
 }
