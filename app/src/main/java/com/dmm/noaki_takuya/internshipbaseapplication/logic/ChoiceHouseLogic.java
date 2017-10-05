@@ -19,8 +19,8 @@ public class ChoiceHouseLogic {
     }
 
 
-    public String   myHouse    = "すぎ";
-    public String[] houseNames = {"えび", "やま", "すぎ"};
+    public String   myHouse    = "杉山";
+    public String[] houseNames = {"蛯谷", "山崎", "杉山"};
     public String   houseName;
 
 

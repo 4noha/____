@@ -1,5 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RecipeActivity extends AppCompatActivity {
 
@@ -58,5 +61,10 @@ public class RecipeActivity extends AppCompatActivity {
                 Log.v("Button","onClick");
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }
