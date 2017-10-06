@@ -9,8 +9,8 @@
 
     <!-- 壁紙 -->
     <com.dmm.noaki_takuya.internshipbaseapplication.View.BackgroundView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent" />
+        android:layout_height="495dp"
+        android:layout_width="20dp" />
 
     <TextView
         android:id="@+id/text_area"
@@ -44,7 +44,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"
-        tools:layout_editor_absoluteY="4dp"
-        tools:layout_editor_absoluteX="67dp" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

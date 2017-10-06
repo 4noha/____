@@ -1,7 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
 import android.app.Application;
-import android.util.Log;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 

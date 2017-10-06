@@ -13,8 +13,12 @@ import com.dmm.noaki_takuya.internshipbaseapplication.R;
 
 public class BackgroundView extends View {
 
+    // 画像
     Bitmap bitmap;
-    Paint paint;
+    // 描画ペン
+    Paint  paint;
+    // 横Fitさせた画像倍率に対する縦倍率
+    int imageSizeY = 1;
 
     // 様々な引数でBackgroundViewが初期化される時の処理
     public BackgroundView(Context context) {
@@ -42,25 +46,39 @@ public class BackgroundView extends View {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
+
+        // 解像度が変わったとき(画面回転など)
         if(changed) {
+            // 画面のサイズを取得
             Point displaySize = new Point();
             this.getDisplay().getSize(displaySize);
 
-            paint = new Paint();
-            bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.sky);
-            bitmap = Bitmap.createScaledBitmap(bitmap, displaySize.x, bitmap.getHeight(), true);
+            // 描画ペンを初期化
+            paint  = new Paint();
+            // 画像の読み込み
+            bitmap = BitmapFactory.decodeResource(getContext().getResources(), R.drawable.wallpaper);
+
+            // 縦横比固定用の縦画像の倍率算出
+            if(displaySize.x > bitmap.getWidth()){
+                imageSizeY = (int)( displaySize.y * (bitmap.getWidth() / (float)displaySize.x) );
+            } else {
+                imageSizeY = (int)( displaySize.y * (displaySize.x / (float)bitmap.getWidth()) );
+            }
+            // 画像を画面サイズにあわせてスケーリング
+            bitmap = Bitmap.createScaledBitmap(bitmap, displaySize.x, imageSizeY, true);
         }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        // 画像が見つからなければ描画しない
         if(bitmap == null) return;
 
         Point position = new Point(0, 0);
         while(position.y < this.getHeight()) {
             canvas.drawBitmap(bitmap, 0, position.y, paint);
-            position.y += bitmap.getHeight();
+            position.y += imageSizeY;
         }
     }
 }

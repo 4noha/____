@@ -47,16 +47,26 @@ public class RecipeLogic {
         String houseName = ChoiceHouseLogic.instance().houseName;
 
 
-        // idでbuttonを取得
-        TextView textArea = (TextView)( activity.findViewById(R.id.text_area) );
-        // 文字をせってい
-        textArea.setText(houseName + "さんちの" + recipeName + "のレシピだよ！");
-    }
 
+        // idでbuttonを取得
+        TextView homeRecipe = (TextView)( activity.findViewById(R.id.homeRecipe) );
+        // 文字をせってい
+        homeRecipe.setText(houseName + "さんちの" + recipeName);
+
+
+        // idでbuttonを取得
+        TextView ingredient = (TextView)( activity.findViewById(R.id.ingredient) );
+        // 文字をせってい
+        ingredient.setText("卵、砂糖、醤油");
+
+        TextView process = (TextView)( activity.findViewById(R.id.process) );
+        // 文字をせってい
+        process.setText("1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ");
+    }
 
     // editボタン
     public void edit(RecipeActivity activity) {
-        // まえのがっめんに戻る
+        // まえのがめんに戻る
         activity.finish();
     }
 

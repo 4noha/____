@@ -1,17 +1,13 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
 import android.content.Context;
-import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Display;
 import android.view.View;
 import android.widget.Button;
 
-import com.dmm.noaki_takuya.internshipbaseapplication.View.BackgroundView;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
-
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RecipeActivity extends AppCompatActivity {

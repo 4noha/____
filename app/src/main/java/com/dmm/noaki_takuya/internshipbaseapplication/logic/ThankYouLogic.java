@@ -2,11 +2,7 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.widget.TextView;
 
-import com.dmm.noaki_takuya.internshipbaseapplication.R;
-import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
-import com.dmm.noaki_takuya.internshipbaseapplication.RecipeMenuActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.ThankyouActivity;
 
 /**
