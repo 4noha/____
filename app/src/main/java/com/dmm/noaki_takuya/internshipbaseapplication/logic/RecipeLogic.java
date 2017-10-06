@@ -26,7 +26,7 @@ public class RecipeLogic {
     public static ArrayList<Recipe> recipes = new ArrayList();
 
     public void onCreate(RecipeActivity activity){
-        // activity_recipe.xmlのデザインをRecipeActivityに読み込み
+        // activity_recipe.xmlのデザインをActivityに読み込み
         activity.setContentView(R.layout.activity_recipe);
 
         Recipe recipe = new Recipe();

@@ -13,8 +13,6 @@ public class RecipeMenuActivity extends AppCompatActivity {
     // 自分自身のインスタンスを入れておく用
     RecipeMenuActivity activity;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
