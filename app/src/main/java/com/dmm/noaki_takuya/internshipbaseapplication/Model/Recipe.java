@@ -11,4 +11,5 @@ public class Recipe implements Serializable {
     public String houseName;
     public String recipeName;
     public String howToUse;
+    public int    imageId;
 }
