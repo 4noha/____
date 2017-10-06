@@ -80,6 +80,6 @@ public class RecipeLogic {
     // メールボタン
     public void toMail(RecipeActivity activity) {
         // メールアプリにレシピを投げる
-        Export.callMailIntent(activity);
+        RecipeIO.callMailIntent(activity);
     }
 }

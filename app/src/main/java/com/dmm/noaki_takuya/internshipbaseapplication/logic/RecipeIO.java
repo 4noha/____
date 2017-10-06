@@ -19,7 +19,7 @@ import java.io.ObjectOutputStream;
  * Created by noaki-takuya on 2017/09/27.
  */
 
-public class Export {
+public class RecipeIO {
     public static String FILE_NAME = "export.recipe";
 
     // メールアプリにレシピを投げる
