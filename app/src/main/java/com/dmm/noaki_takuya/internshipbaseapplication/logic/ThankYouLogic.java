@@ -1,10 +1,13 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.ThankyouActivity;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by noaki-takuya on 2017/09/27.

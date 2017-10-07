@@ -1,5 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ThankYouLogic;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ThankyouActivity extends AppCompatActivity {
 
@@ -57,5 +60,10 @@ public class ThankyouActivity extends AppCompatActivity {
                 ThankYouLogic.instance().back(activity);
             }
         });
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

@@ -1,5 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
+import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.view.MotionEvent;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.HousePagerAdapter;
 import com.tmall.ultraviewpager.UltraViewPager;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /////////////
 // 最初の画面
@@ -86,5 +89,10 @@ public class ChoiceHouseActivity extends AppCompatActivity{
         gesture.onTouchEvent(event);
 
         return false;
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

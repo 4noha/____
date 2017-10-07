@@ -37,7 +37,9 @@
                 android:text="さんちの"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                fontPath="fonts/HuiFont.ttf"
+                tools:ignore="MissingPrefix" />
 
             <EditText
                 android:id="@+id/eHomeRecipe"
@@ -64,7 +66,9 @@
                 android:layout_gravity="center"
                 android:text="材料名"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                fontPath="fonts/HuiFont.ttf"
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:id="@+id/ingredient"
@@ -73,7 +77,9 @@
                 android:background="#ffffff"
                 android:layout_gravity="center"
                 android:alpha="0.7"
-                android:text="材料名body" />
+                android:text="材料名body"
+                fontPath="fonts/HuiFont.ttf"
+                tools:ignore="MissingPrefix" />
 
             <EditText
                 android:id="@+id/eIngredient"
@@ -88,7 +94,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="手順"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                fontPath="fonts/HuiFont.ttf"
+                tools:ignore="MissingPrefix" />
 
             <TextView
                 android:id="@+id/process"
@@ -97,7 +105,9 @@
                 android:layout_gravity="center"
                 android:background="#ffffff"
                 android:alpha="0.7"
-                android:text="手順body" />
+                android:text="手順body"
+                fontPath="fonts/HuiFont.ttf"
+                tools:ignore="MissingPrefix" />
 
             <EditText
                 android:id="@+id/eProcess"
