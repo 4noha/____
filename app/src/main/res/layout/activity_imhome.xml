@@ -32,8 +32,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         fontPath="fonts/HuiFont.ttf"
-        tools:ignore="MissingPrefix"
-
-    />
+        tools:ignore="MissingPrefix" />
 
 </android.support.constraint.ConstraintLayout>

@@ -21,7 +21,7 @@ public class ChoiceHouseLogic {
     }
 
 
-    public String   myHouse    = "すぎやま家";
+    public String   myHouse    = "すぎやま";
     public ArrayList<String> houseNames = new ArrayList<>(RecipeLogic.instance().houses.keySet());
     public String   houseName;
 

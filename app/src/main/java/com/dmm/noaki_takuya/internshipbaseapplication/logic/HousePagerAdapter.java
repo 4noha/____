@@ -65,7 +65,7 @@ public class HousePagerAdapter extends PagerAdapter {
 
         // 現在の家の名前を取得して表示する
         TextView textView = (TextView) linearLayout.findViewById(R.id.pager_textview);
-        textView.setText(houseName);
+        textView.setText(houseName + "家");
 
         // 動的作成したLinerLayoutにIDを設定
         linearLayout.setId(R.id.item_id);

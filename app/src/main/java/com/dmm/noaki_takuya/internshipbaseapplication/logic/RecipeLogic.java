@@ -162,7 +162,7 @@ public class RecipeLogic {
         Recipe recipe     = new Recipe();
 
         recipe.myMenu     = true;
-        recipe.houseName  = "すぎやま家";
+        recipe.houseName  = "すぎやま";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
         recipe.recipeName = "オムレツ";
@@ -172,7 +172,7 @@ public class RecipeLogic {
         for (int i = 0; i < 30 ; i++ ) {
             recipe            = new Recipe();
             recipe.myMenu     = true;
-            recipe.houseName  = "すぎやま家";
+            recipe.houseName  = "すぎやま";
             recipe.ingredient   = "卵、砂糖、醤油";
             recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
             recipe.recipeName = "オムレツ"+ i;
@@ -186,7 +186,7 @@ public class RecipeLogic {
         recipe = new Recipe();
 
         recipe.myMenu     = false;
-        recipe.houseName  = "えびたに家";
+        recipe.houseName  = "えびたに";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
         recipe.recipeName = "グラタン";
@@ -196,7 +196,7 @@ public class RecipeLogic {
         for (int i = 0; i < 30 ; i++ ) {
             recipe            = new Recipe();
             recipe.myMenu     = false;
-            recipe.houseName  = "えびたに家";
+            recipe.houseName  = "えびたに";
             recipe.ingredient   = "卵、砂糖、醤油";
             recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
             recipe.recipeName = "グラタン"+ i;
@@ -210,7 +210,7 @@ public class RecipeLogic {
         recipe = new Recipe();
 
         recipe.myMenu     = false;
-        recipe.houseName  = "やまさき家";
+        recipe.houseName  = "やまさき";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
         recipe.recipeName = "シチュー";
@@ -220,7 +220,7 @@ public class RecipeLogic {
         for (int i = 0; i < 30 ; i++ ) {
             recipe            = new Recipe();
             recipe.myMenu     = false;
-            recipe.houseName  = "やまさき家";
+            recipe.houseName  = "やまさき";
             recipe.ingredient   = "卵、砂糖、醤油";
             recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
             recipe.recipeName = "シチュー"+ i;
