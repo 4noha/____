@@ -11,6 +11,7 @@ import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.ThankyouActivity;
 
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Created by noaki-takuya on 2017/09/27.
@@ -29,7 +30,7 @@ public class RecipeLogic {
     // Houses("家名")
     //    |- Menu("レシピ名")
     //         |- Recipeクラス
-    public static HashMap<String, HashMap<String, Recipe> > houses = testDataLoading(); // テストデータ流す
+    public static HashMap<String, TreeMap<String, Recipe>> houses = new HashMap<>();// テストデータ流す
 
 
     public void onCreate(RecipeActivity activity){
@@ -93,12 +94,12 @@ public class RecipeLogic {
     /// テストデータ流し込み
     ///////////////////////////
 
-    public static HashMap<String, HashMap<String, Recipe> > testDataLoading(){
+    public static HashMap<String, TreeMap<String, Recipe> > testDataLoading(){
 
-        HashMap<String, HashMap<String, Recipe> > houses = new HashMap<>();
+        HashMap<String, TreeMap<String, Recipe> > houses = new HashMap<>();
 
 
-        HashMap<String, Recipe> menu = new HashMap<>();
+        TreeMap<String, Recipe> menu = new TreeMap<>();
         Recipe recipe     = new Recipe();
 
         recipe.myMenu     = true;
@@ -119,7 +120,7 @@ public class RecipeLogic {
         houses.put(recipe.houseName, menu);
 
 
-        menu = new HashMap<String, Recipe>();
+        menu = new TreeMap<String, Recipe>();
         recipe = new Recipe();
 
         recipe.myMenu     = false;
@@ -140,7 +141,7 @@ public class RecipeLogic {
         houses.put(recipe.houseName, menu);
 
 
-        menu = new HashMap<String, Recipe>();
+        menu = new TreeMap<String, Recipe>();
         recipe = new Recipe();
 
         recipe.myMenu     = false;

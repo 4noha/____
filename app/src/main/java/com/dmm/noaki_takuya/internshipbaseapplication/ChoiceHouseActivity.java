@@ -58,7 +58,7 @@ public class ChoiceHouseActivity extends AppCompatActivity{
                 // pagerから要素番号を取得
                 int position = housePager.getCurrentItem();
                 // houseNamesから現在選択されている家の名前を取得
-                String houseName = ChoiceHouseLogic.instance().houseNames[position];
+                String houseName = ChoiceHouseLogic.instance().houseNames.get(position);
                 // RecipeMenuに遷移
                 ChoiceHouseLogic.instance().toHome(activity, houseName);
 

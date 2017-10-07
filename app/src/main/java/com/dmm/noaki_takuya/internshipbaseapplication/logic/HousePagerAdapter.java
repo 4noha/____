@@ -48,7 +48,7 @@ public class HousePagerAdapter extends PagerAdapter {
     @Override
     public int getCount() {
         // ページ数を家配列の家の数から取得
-        return ChoiceHouseLogic.instance().houseNames.length;
+        return ChoiceHouseLogic.instance().houseNames.size();
     }
 
     @Override public boolean isViewFromObject(View view, Object object) {
@@ -61,7 +61,7 @@ public class HousePagerAdapter extends PagerAdapter {
         LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(container.getContext()).inflate(R.layout.layout_pager, null);
 
         // 家情報の配列に要素番号を入れて家の名前を取得
-        String houseName = ChoiceHouseLogic.instance().houseNames[position];
+        String houseName = ChoiceHouseLogic.instance().houseNames.get(position);
 
         // 現在の家の名前を取得して表示する
         TextView textView = (TextView) linearLayout.findViewById(R.id.pager_textview);

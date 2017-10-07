@@ -6,6 +6,8 @@ import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.ImHomeActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by noaki-takuya on 2017/09/27.
  */
@@ -20,7 +22,7 @@ public class ChoiceHouseLogic {
 
 
     public String   myHouse    = "すぎやま家";
-    public String[] houseNames = {"えびたに家", "やまさき家", "すぎやま家"};
+    public ArrayList<String> houseNames = new ArrayList<>(RecipeLogic.instance().houses.keySet());
     public String   houseName;
 
 

@@ -18,6 +18,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Created by noaki-takuya on 2017/09/27.
@@ -75,7 +76,7 @@ public class RecipeIO {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(sendFile));
 
             // 全てのレシピを取得
-            HashMap<String, HashMap<String, Recipe>> houses = RecipeLogic.houses;
+            HashMap<String, TreeMap<String, Recipe>> houses = RecipeLogic.houses;
 
 
             // 書き出し

@@ -22,6 +22,7 @@ import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeMenuLogic;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeMap;
 
 public class RecipeMenuActivity extends AppCompatActivity {
 
@@ -60,7 +61,7 @@ public class RecipeMenuActivity extends AppCompatActivity {
         // 家の名前取得
         String houseName = ChoiceHouseLogic.instance().houseName;
         // メニューを取得
-        HashMap<String, Recipe> menu = RecipeLogic.instance().houses.get(houseName);
+        TreeMap<String, Recipe> menu = RecipeLogic.instance().houses.get(houseName);
         // ArrayListに変換
         List<Recipe> list = new ArrayList<>(menu.values());
 
