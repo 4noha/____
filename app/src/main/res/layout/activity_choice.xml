@@ -21,8 +21,6 @@
         android:layout_centerInParent="true"
         android:onClick="click"
         tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" >
-
-    </com.tmall.ultraviewpager.UltraViewPager>
+        tools:layout_editor_absoluteX="8dp" />
 
 </android.support.constraint.ConstraintLayout>

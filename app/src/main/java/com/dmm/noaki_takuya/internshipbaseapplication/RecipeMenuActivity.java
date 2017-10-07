@@ -24,6 +24,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class RecipeMenuActivity extends AppCompatActivity {
 
     // 自分自身のインスタンスを入れておく用
@@ -104,5 +106,11 @@ public class RecipeMenuActivity extends AppCompatActivity {
                 mTextView = (TextView) v.findViewById(R.id.itemText);
             }
         }
+    }
+
+    // カスタムフォント requires
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

@@ -1,15 +1,13 @@
 
-package com.dmm.noaki_takuya.internshipbaseapplication;
+package com.dmm.noaki_takuya.internshipbaseapplication.View;
 
 import android.animation.ObjectAnimator;
 import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import com.dmm.noaki_takuya.internshipbaseapplication.R;
 
 /**
  * Created by michiko on 10/7/17.

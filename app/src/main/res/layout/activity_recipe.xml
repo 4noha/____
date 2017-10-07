@@ -50,7 +50,8 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:visibility="gone" />
+                android:visibility="gone"
+                android:focusable="false" />
 
 
             <ImageView
@@ -86,7 +87,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:text="材料名body" />
+                android:text="材料名body"
+                android:focusable="false" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -114,7 +116,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
-                android:text="手順body" />
+                android:text="手順body"
+                android:focusable="false" />
 
             <RelativeLayout
                 android:layout_width="match_parent"

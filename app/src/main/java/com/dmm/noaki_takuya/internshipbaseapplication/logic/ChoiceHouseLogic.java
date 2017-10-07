@@ -29,7 +29,7 @@ public class ChoiceHouseLogic {
 
     public void onCreate(ChoiceHouseActivity activity){
         // layoutをMainActivityに読み込み
-        // activity.setContentView(R.layout.activity_choice);
+        activity.setContentView(R.layout.activity_choice);
     }
 
 
