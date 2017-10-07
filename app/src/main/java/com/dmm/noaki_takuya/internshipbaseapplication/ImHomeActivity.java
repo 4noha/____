@@ -31,7 +31,7 @@ public class ImHomeActivity extends AppCompatActivity {
         String houseName = ChoiceHouseLogic.instance().houseName;
         String myHouse = ChoiceHouseLogic.instance().myHouse;
 
-        // activity_main.xmlのデザインをMainActivityに読み込み
+        // layoutをMainActivityに読み込み
         activity.setContentView(R.layout.activity_imhome);
 
 

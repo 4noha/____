@@ -25,7 +25,7 @@ public class RecipeMenuLogic {
 
 
     public void onCreate(RecipeMenuActivity activity){
-        // activity_main.xmlのデザインをActivityに読み込み
+        // layoutをActivityに読み込み
         activity.setContentView(R.layout.activity_menu);
 
 

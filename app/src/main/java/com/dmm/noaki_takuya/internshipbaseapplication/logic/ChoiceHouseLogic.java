@@ -5,6 +5,7 @@ import android.content.Intent;
 import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.ImHomeActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
+import com.dmm.noaki_takuya.internshipbaseapplication.View.Splash;
 
 import java.util.ArrayList;
 
@@ -21,14 +22,14 @@ public class ChoiceHouseLogic {
     }
 
 
-    public String   myHouse    = "すぎやま";
+    public String myHouse;
+    public String houseName;
     public ArrayList<String> houseNames = new ArrayList<>(RecipeLogic.instance().houses.keySet());
-    public String   houseName;
 
 
     public void onCreate(ChoiceHouseActivity activity){
-        // activity_main.xmlのデザインをMainActivityに読み込み
-        activity.setContentView(R.layout.activity_choice);
+        // layoutをMainActivityに読み込み
+        // activity.setContentView(R.layout.activity_choice);
     }
 
 
