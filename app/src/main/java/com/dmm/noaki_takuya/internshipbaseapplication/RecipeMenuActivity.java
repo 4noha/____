@@ -15,9 +15,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeMenuLogic;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class RecipeMenuActivity extends AppCompatActivity {
@@ -53,19 +56,15 @@ public class RecipeMenuActivity extends AppCompatActivity {
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        final List list = new ArrayList<Recipe>();
-        Recipe cake=new Recipe();
-        cake.recipeName = "cake";
-        cake.imageId= R.drawable.cake;
-        list.add(cake);
 
-        for (int i = 0; i < 30 ; i++ ) {
-            Recipe recipe =new Recipe();
-            recipe.houseName = "えび";
-            recipe.recipeName = "food"+ i;
-            recipe.imageId= R.drawable.omelette;
-            list.add(recipe);
-        }
+        // 家の名前取得
+        String houseName = ChoiceHouseLogic.instance().houseName;
+        // メニューを取得
+        HashMap<String, Recipe> menu = RecipeLogic.instance().houses.get(houseName);
+        // ArrayListに変換
+        List<Recipe> list = new ArrayList<>(menu.values());
+
+
         recyclerView.setAdapter(new RecyclerAdapter(activity, getApplicationContext(), list));
     }
 

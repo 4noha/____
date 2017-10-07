@@ -8,8 +8,9 @@ import java.io.Serializable;
  */
 
 public class Recipe implements Serializable {
-    public String houseName;
-    public String recipeName;
-    public String howToUse;
-    public int    imageId;
+    public boolean myMenu;
+    public String  houseName;
+    public String  recipeName;
+    public String  howToUse;
+    public int     imageId;
 }

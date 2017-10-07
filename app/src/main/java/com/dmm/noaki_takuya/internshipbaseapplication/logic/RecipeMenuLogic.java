@@ -21,9 +21,7 @@ public class RecipeMenuLogic {
     }
 
 
-    public Recipe recipe;
-
-    public String recipeName;
+    public static Recipe recipe;
 
 
     public void onCreate(RecipeMenuActivity activity){

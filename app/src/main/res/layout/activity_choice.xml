@@ -8,19 +8,6 @@
     android:layout_height="match_parent"
     tools:context="com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity">
 
-
-    <com.tmall.ultraviewpager.UltraViewPager
-        android:id="@+id/ultra_viewpager"
-        android:layout_width="368dp"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:onClick="click"
-        android:background="@android:color/darker_gray"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp" >
-
-    </com.tmall.ultraviewpager.UltraViewPager>
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -35,5 +22,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.65999997"
         tools:layout_editor_absoluteX="0dp" />
+
+    <com.tmall.ultraviewpager.UltraViewPager
+        android:id="@+id/ultra_viewpager"
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:onClick="click"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp" >
+
+    </com.tmall.ultraviewpager.UltraViewPager>
 
 </android.support.constraint.ConstraintLayout>
