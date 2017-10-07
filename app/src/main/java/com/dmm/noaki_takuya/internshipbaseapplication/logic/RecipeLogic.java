@@ -1,7 +1,10 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,11 +64,11 @@ public class RecipeLogic {
         // idでbuttonを取得
         TextView ingredient = (TextView)( activity.findViewById(R.id.ingredient) );
         // 文字をせってい
-        ingredient.setText("卵、砂糖、醤油");
+        ingredient.setText(recipe.ingredient);
 
         TextView process = (TextView)( activity.findViewById(R.id.process) );
         // 文字をせってい
-        process.setText("1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ");
+        process.setText(recipe.prosess);
     }
 
 
@@ -89,6 +92,62 @@ public class RecipeLogic {
     }
 
 
+    // editモード
+    public void goEdit(Activity activity) {
+        // idでTextViewを取得
+        TextView homeRecipe  = (TextView)( activity.findViewById(R.id.homeRecipe) );
+        TextView ingredient  = (TextView)( activity.findViewById(R.id.ingredient) );
+        TextView process     = (TextView)( activity.findViewById(R.id.process) );
+        EditText eHomeRecipe  = (EditText)( activity.findViewById(R.id.eHomeRecipe) );
+        EditText eIngredient  = (EditText)( activity.findViewById(R.id.eIngredient) );
+        EditText eProcess     = (EditText)( activity.findViewById(R.id.eProcess) );
+
+        // データ流し込み
+        Recipe recipe = RecipeMenuLogic.instance().recipe;
+        eHomeRecipe.setText(recipe.recipeName);
+        eIngredient.setText(recipe.ingredient);
+        eProcess.setText(recipe.prosess);
+
+
+        // 非表示設定
+        homeRecipe.setVisibility(View.GONE);
+        ingredient.setVisibility(View.GONE);
+        process.setVisibility(View.GONE);
+        eHomeRecipe.setVisibility(View.VISIBLE);
+        eIngredient.setVisibility(View.VISIBLE);
+        eProcess.setVisibility(View.VISIBLE);
+    }
+    // diseditモード
+    public void goStandard(Activity activity) {
+        // idでTextViewを取得
+        TextView homeRecipe  = (TextView)( activity.findViewById(R.id.homeRecipe) );
+        TextView ingredient  = (TextView)( activity.findViewById(R.id.ingredient) );
+        TextView process     = (TextView)( activity.findViewById(R.id.process) );
+        EditText eHomeRecipe  = (EditText)( activity.findViewById(R.id.eHomeRecipe) );
+        EditText eIngredient  = (EditText)( activity.findViewById(R.id.eIngredient) );
+        EditText eProcess     = (EditText)( activity.findViewById(R.id.eProcess) );
+
+
+        // データ流し込み
+        Recipe recipe = RecipeMenuLogic.instance().recipe;
+        recipe.recipeName = eHomeRecipe.getText().toString();
+        recipe.ingredient = eIngredient.getText().toString();
+        recipe.prosess = eProcess.getText().toString();
+        homeRecipe.setText(recipe.houseName + "さんちの" + recipe.recipeName);
+        ingredient.setText(recipe.ingredient);
+        process.setText(recipe.prosess);
+
+
+        // 表示設定
+        homeRecipe.setVisibility(View.VISIBLE);
+        ingredient.setVisibility(View.VISIBLE);
+        process.setVisibility(View.VISIBLE);
+        eHomeRecipe.setVisibility(View.GONE);
+        eIngredient.setVisibility(View.GONE);
+        eProcess.setVisibility(View.GONE);
+    }
+
+
 
     ///////////////////////////
     /// テストデータ流し込み
@@ -104,7 +163,8 @@ public class RecipeLogic {
 
         recipe.myMenu     = true;
         recipe.houseName  = "すぎやま家";
-        recipe.howToUse   = "1.2.3.";
+        recipe.ingredient   = "卵、砂糖、醤油";
+        recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
         recipe.recipeName = "オムレツ";
         recipe.imageId    = R.drawable.cake;
         menu.put(recipe.recipeName, recipe);
@@ -113,6 +173,8 @@ public class RecipeLogic {
             recipe            = new Recipe();
             recipe.myMenu     = true;
             recipe.houseName  = "すぎやま家";
+            recipe.ingredient   = "卵、砂糖、醤油";
+            recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
             recipe.recipeName = "オムレツ"+ i;
             recipe.imageId    = R.drawable.omelette;
             menu.put(recipe.recipeName, recipe);
@@ -125,7 +187,8 @@ public class RecipeLogic {
 
         recipe.myMenu     = false;
         recipe.houseName  = "えびたに家";
-        recipe.howToUse   = "1.2.3.";
+        recipe.ingredient   = "卵、砂糖、醤油";
+        recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
         recipe.recipeName = "グラタン";
         recipe.imageId    = R.drawable.cake;
         menu.put(recipe.recipeName, recipe);
@@ -134,6 +197,8 @@ public class RecipeLogic {
             recipe            = new Recipe();
             recipe.myMenu     = false;
             recipe.houseName  = "えびたに家";
+            recipe.ingredient   = "卵、砂糖、醤油";
+            recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
             recipe.recipeName = "グラタン"+ i;
             recipe.imageId    = R.drawable.omelette;
             menu.put(recipe.recipeName, recipe);
@@ -146,7 +211,8 @@ public class RecipeLogic {
 
         recipe.myMenu     = false;
         recipe.houseName  = "やまさき家";
-        recipe.howToUse   = "1.2.3.";
+        recipe.ingredient   = "卵、砂糖、醤油";
+        recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
         recipe.recipeName = "シチュー";
         recipe.imageId    = R.drawable.cake;
         menu.put(recipe.recipeName, recipe);
@@ -155,6 +221,8 @@ public class RecipeLogic {
             recipe            = new Recipe();
             recipe.myMenu     = false;
             recipe.houseName  = "やまさき家";
+            recipe.ingredient   = "卵、砂糖、醤油";
+            recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
             recipe.recipeName = "シチュー"+ i;
             recipe.imageId    = R.drawable.omelette;
             menu.put(recipe.recipeName, recipe);

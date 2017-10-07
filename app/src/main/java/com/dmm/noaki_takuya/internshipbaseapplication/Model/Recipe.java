@@ -11,6 +11,7 @@ public class Recipe implements Serializable {
     public boolean myMenu;
     public String  houseName;
     public String  recipeName;
-    public String  howToUse;
+    public String  ingredient;
+    public String  prosess;
     public int     imageId;
 }

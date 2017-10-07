@@ -21,6 +21,7 @@
         tools:layout_editor_absoluteY="8dp">
 
         <LinearLayout
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -35,6 +36,18 @@
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/eHomeRecipe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:background="#ffffff"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
 
             <ImageView
                 android:id="@+id/cookedview"
@@ -53,7 +66,14 @@
             <TextView
                 android:id="@+id/ingredient"
                 android:layout_width="match_parent"
-                android:layout_height="77dp"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:text="材料名body" />
+
+            <EditText
+                android:id="@+id/eIngredient"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:background="#ffffff"
                 android:text="材料名body" />
 
@@ -66,6 +86,13 @@
 
             <TextView
                 android:id="@+id/process"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#ffffff"
+                android:text="手順body" />
+
+            <EditText
+                android:id="@+id/eProcess"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#ffffff"
