@@ -37,16 +37,14 @@
         android:id="@+id/imageView2"
         android:layout_width="match_parent"
         android:layout_height="240dp"
-        app:srcCompat="@drawable/jyuutaku01" />
+        app:srcCompat="@drawable/home" />
 
     <TextView
         android:id="@+id/pager_textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/white"
-        android:textSize="20dp"
         fontPath="fonts/HuiFont.ttf"
         tools:ignore="MissingPrefix" />
-
-
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20dp" />
 </LinearLayout>

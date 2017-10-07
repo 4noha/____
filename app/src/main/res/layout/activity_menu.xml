@@ -9,10 +9,8 @@
 
     <!-- 壁紙 -->
     <com.dmm.noaki_takuya.internshipbaseapplication.View.BackgroundView xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_height="1dp"
-        android:layout_width="1dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_height="495dp"
+        android:layout_width="20dp" />
 
     <TextView
         android:id="@+id/text_area"
@@ -24,7 +22,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         fontPath="fonts/HuiFont.ttf"
-        tools:ignore="MissingPrefix"/>
+        tools:ignore="MissingPrefix" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
