@@ -70,7 +70,7 @@ public class RecipeIO {
 
     public void save(Activity activity){
         // レシピファイルを作成
-        File     sendFile = new File(activity.getCacheDir(), FILE_NAME);
+        File sendFile = new File(activity.getCacheDir(), FILE_NAME);
 
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(sendFile));
@@ -91,7 +91,7 @@ public class RecipeIO {
 
 
     public static void receiveRecipeIntent(Intent intent){
-        String action = intent.getAction();
+        String action   = intent.getAction();
         String mimeType = intent.getType();
 
 
