@@ -1,11 +1,13 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
+import com.dmm.noaki_takuya.internshipbaseapplication.RecipeMenuActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.ThankyouActivity;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class RecipeLogic {
         // activity_recipe.xmlのデザインをActivityに読み込み
         activity.setContentView(R.layout.activity_recipe);
 
+        /*
         Recipe recipe = new Recipe();
         recipe.houseName = "杉山";
         recipe.howToUse = "1.2.3.";
@@ -39,19 +42,24 @@ public class RecipeLogic {
         recipe.howToUse = "1.2.3.";
         recipe.recipeName = "オム";
         recipes.add(recipe);
+        */
 
 
         // どのレシピを選んだかを取得
-        String recipeName = RecipeMenuLogic.instance().recipeName;
+        //String recipeName = RecipeMenuLogic.instance().recipeName;
         // 誰の家を選んだかを取得
-        String houseName = ChoiceHouseLogic.instance().houseName;
+        //String houseName = ChoiceHouseLogic.instance().houseName;
 
 
+        Recipe recipe = RecipeMenuLogic.instance().recipe;
 
         // idでbuttonを取得
         TextView homeRecipe = (TextView)( activity.findViewById(R.id.homeRecipe) );
         // 文字をせってい
-        homeRecipe.setText(houseName + "さんちの" + recipeName);
+        homeRecipe.setText(recipe.houseName + "さんちの" + recipe.recipeName);
+
+        ImageView imageView = (ImageView)(activity.findViewById(R.id.cookedview)) ;
+        imageView.setImageResource(recipe.imageId);
 
 
         // idでbuttonを取得
@@ -63,7 +71,6 @@ public class RecipeLogic {
         // 文字をせってい
         process.setText("1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ");
     }
-
 
     // editボタン
     public void edit(RecipeActivity activity) {
