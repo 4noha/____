@@ -1,5 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -28,5 +29,11 @@ public class ThankYouLogic {
         intent.putExtra(Intent.EXTRA_TEXT, "できました！");
 
         activity.startActivity(intent);
+    }
+
+    // backボタン
+    public void back(Activity activity) {
+        // まえのがめんに戻る
+        activity.finish();
     }
 }

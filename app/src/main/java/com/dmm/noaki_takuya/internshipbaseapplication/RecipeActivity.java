@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.ImageButton;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
@@ -62,7 +63,7 @@ public class RecipeActivity extends AppCompatActivity {
         ///  ボタンイベント設定
         /////////////////////////
         // 編集ボタン
-        Button editButton = (Button)findViewById(R.id.edit);
+        ImageButton editButton = (ImageButton)findViewById(R.id.edit);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,7 +84,7 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         // メールボタン
-        Button mailButton = (Button)findViewById(R.id.mail);
+        ImageButton mailButton = (ImageButton)findViewById(R.id.share);
         mailButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +93,6 @@ public class RecipeActivity extends AppCompatActivity {
             }
         });
     }
-
 
     // カスタムフォント requires
     @Override

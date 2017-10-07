@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ThankYouLogic;
 
@@ -25,7 +25,7 @@ public class ThankyouActivity extends AppCompatActivity {
 
 
         // idでbuttonを取得
-        Button mailButton = (Button)findViewById(R.id.to_mail);
+        ImageButton mailButton = (ImageButton)findViewById(R.id.to_mail);
         // お礼メール送信のイベントを設定
         mailButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +41,20 @@ public class ThankyouActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 activity.finish();
+            }
+        });
+
+
+
+        /////////////////////////
+        ///  ボタンイベント設定
+        /////////////////////////
+        // 編集ボタン
+        ImageButton editButton = (ImageButton) findViewById(R.id.edit);
+        editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ThankYouLogic.instance().back(activity);
             }
         });
     }

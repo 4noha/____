@@ -111,14 +111,6 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/edit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentLeft="true"
-                    android:text="編集" />
-
-                <Button
                     android:id="@+id/cooked"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -127,14 +119,24 @@
                     android:layout_centerInParent="true"
                     android:text="できたよ" />
 
-                <Button
-                    android:id="@+id/mail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <ImageButton
+                    android:id="@+id/edit"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/back"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_below="@id/text_area"
-                    android:text="メール送信" />
+                    android:layout_alignParentStart="true" />
+
+                <ImageButton
+                    android:id="@+id/share"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@+id/edit"
+                    android:scaleType="fitXY"
+                    app:srcCompat="@drawable/share" />
 
             </RelativeLayout>
 

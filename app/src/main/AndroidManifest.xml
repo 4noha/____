@@ -15,7 +15,7 @@
 
         <!-- ChoiceHouseActivityの設定 -->
         <!-- Activityの数だけ設定が必要、この設定によってJavaのクラスがActivityであるかを判定している -->
-        <activity android:name=".ChoiceHouseActivity" >
+        <activity android:name=".SplashActivity" >
             <!-- AndroidはintentイベントによってActivityを起動する。その設定 -->
             <intent-filter>
                 <!-- action.MAIN:アプリ起動時にこのActivity起動する設定 -->
@@ -25,6 +25,11 @@
                 <!-- 他にはブラウザから起動してもOKなどのカテゴリがある -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ChoiceHouseActivity"
+            android:label="@string/app_name" >
         </activity>
 
 
