@@ -94,6 +94,7 @@ public class RecipeActivity extends AppCompatActivity {
         });
     }
 
+
     // カスタムフォント requires
     @Override
     protected void attachBaseContext(Context newBase) {

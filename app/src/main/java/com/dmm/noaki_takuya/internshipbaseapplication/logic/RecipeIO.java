@@ -1,15 +1,13 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.FileProvider;
-import android.util.Log;
 
-import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
+import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
 
 import java.io.File;
@@ -78,7 +76,6 @@ public class RecipeIO {
             // 全てのレシピを取得
             HashMap<String, TreeMap<String, Recipe>> houses = RecipeLogic.houses;
 
-
             // 書き出し
             out.writeObject(houses);
             out.close();
@@ -103,7 +100,48 @@ public class RecipeIO {
                 Bundle extras = intent.getExtras();
                 if (extras != null) {
                     Uri uri = extras.getParcelable(Intent.EXTRA_STREAM);
+
+
+
+
+                    // myMenu = Trueのレシピがある家が自分の家
+                    for (String houseName: RecipeLogic.houses.keySet()){
+                        TreeMap<String, Recipe> m = RecipeLogic.houses.get(houseName);
+                        Recipe recipe_ = (Recipe)(m.values().toArray()[0]);
+                        if(recipe_.myMenu){
+                            ChoiceHouseLogic.instance().myHouse = houseName;
+                        }
+                    }
+
+
+                    TreeMap<String, Recipe> menu;
+
+                    // テストデータ
+                    Recipe recipe     = new Recipe();
+                    recipe.myMenu     = true;
+                    recipe.houseName  = "すぎやま";
+                    recipe.ingredient   = "卵、砂糖、醤油";
+                    recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
+                    recipe.recipeName = "オムレツ";
+                    recipe.imageId    = R.drawable.cake;
                     //
+
+                    // ファイル読み込み
+                    if(recipe.houseName.equals(ChoiceHouseLogic.instance().myHouse)){
+                        recipe.myMenu = true;
+                    }
+
+                    // OO家のメニューを取得、なければ追加
+                    menu = RecipeLogic.houses.get(recipe.houseName);
+                    if(menu == null){
+                        menu = new TreeMap<String, Recipe>();
+                    }
+                    // 上書き
+                    menu.put(recipe.recipeName, recipe);
+
+                    ChoiceHouseLogic.instance().houseName = recipe.houseName;
+                    RecipeLogic.houses.put(recipe.houseName, menu);
+                    RecipeMenuLogic.instance().recipe = recipe;
                 }
             }
         }

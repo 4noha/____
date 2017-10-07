@@ -2,11 +2,11 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
@@ -35,7 +35,6 @@ public class RecipeLogic {
     //         |- Recipeクラス
     public static HashMap<String, TreeMap<String, Recipe>> houses = new HashMap<>();// テストデータ流す
 
-
     public void onCreate(RecipeActivity activity){
         // activity_recipe.xmlのデザインをActivityに読み込み
         activity.setContentView(R.layout.activity_recipe);
@@ -47,6 +46,7 @@ public class RecipeLogic {
         if (Intent.ACTION_SEND.equals(action)) {
             // レシピ読み込み処理
             RecipeIO.receiveRecipeIntent(intent);
+            Toast.makeText(activity, "レシピを保存しました！", Toast.LENGTH_LONG).show();
         }
 
 
