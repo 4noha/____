@@ -3,6 +3,7 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 import android.content.Intent;
 import android.widget.TextView;
 
+import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeMenuActivity;
@@ -19,6 +20,8 @@ public class RecipeMenuLogic {
         return singleton;
     }
 
+
+    public Recipe recipe;
 
     public String recipeName;
 
@@ -40,8 +43,8 @@ public class RecipeMenuLogic {
 
 
     // ボタンが押されたとき
-    public void toRecipe(RecipeMenuActivity activity, String recipeName) {
-        this.recipeName = recipeName;
+    public void toRecipe(RecipeMenuActivity activity, Recipe recipe) {
+        this.recipe = recipe;
 
         // 次のActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
         Intent intent = new Intent(activity, RecipeActivity.class);

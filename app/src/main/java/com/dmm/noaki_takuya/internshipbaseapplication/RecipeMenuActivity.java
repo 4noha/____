@@ -1,6 +1,7 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -40,7 +41,9 @@ public class RecipeMenuActivity extends AppCompatActivity {
         cookedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                RecipeMenuLogic.instance().toRecipe(activity, "オムレツ");
+                Recipe recipe = new Recipe();
+                recipe.recipeName = "オムレツ";
+                RecipeMenuLogic.instance().toRecipe(activity, recipe);
                 Log.v("Button","onClick");
             }
         });
@@ -58,28 +61,41 @@ public class RecipeMenuActivity extends AppCompatActivity {
 
         for (int i = 0; i < 30 ; i++ ) {
             Recipe recipe =new Recipe();
+            recipe.houseName = "えび";
             recipe.recipeName = "food"+ i;
             recipe.imageId= R.drawable.omelette;
             list.add(recipe);
         }
-        recyclerView.setAdapter(new RecyclerAdapter(getApplicationContext(), list));
+        recyclerView.setAdapter(new RecyclerAdapter(activity, getApplicationContext(), list));
     }
 
 
     private static final class RecyclerAdapter
             extends RecyclerView.Adapter {
+        private final RecipeMenuActivity activity;
         private final Context mContext;
         private List<Recipe> mItemList = new ArrayList();
-        private RecyclerAdapter (final Context context, final List<Recipe> itemList) {
+        private RecyclerAdapter (RecipeMenuActivity activity, final Context context, final List<Recipe> itemList) {
+            this.activity = activity;
             mContext = context;
             mItemList = itemList;
 
         }
 
         @Override
-        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        public RecyclerView.ViewHolder onCreateViewHolder(final ViewGroup parent, int viewType) {
             final View view = LayoutInflater.from(mContext).inflate(R.layout.item, parent, false);
-            return new ViewHolder(view);
+            final ViewHolder holder = new ViewHolder(view);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Recipe recipe = mItemList.get(holder.getPosition());
+                    RecipeMenuLogic.instance().toRecipe(activity, recipe);
+                }
+            });
+
+            return holder ;
         }
         @Override
         public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {

@@ -64,6 +64,7 @@ public class RecipeLogic {
         process.setText("1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ");
     }
 
+
     // editボタン
     public void edit(RecipeActivity activity) {
         // まえのがめんに戻る

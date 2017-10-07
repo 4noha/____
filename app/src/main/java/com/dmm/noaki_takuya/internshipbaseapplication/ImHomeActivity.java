@@ -2,6 +2,7 @@ package com.dmm.noaki_takuya.internshipbaseapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
+
+
 
 public class ImHomeActivity extends AppCompatActivity {
 
@@ -53,7 +56,11 @@ public class ImHomeActivity extends AppCompatActivity {
             imhomepage.setImageResource(R.drawable.ojamashimasu);
         }
 
+        Handler hdl = new Handler();
+        final splashHandler shdl = new splashHandler();
 
+        // 第２引数で切り替わる秒数(ミリ秒)を指定、今回は2秒
+        hdl.postDelayed(shdl, 2000);
 
 
         ConstraintLayout page = (ConstraintLayout) activity.findViewById(R.id.thankyoupage);
@@ -61,10 +68,33 @@ public class ImHomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                shdl.stop();
+
                 Intent intent = new Intent(activity, RecipeMenuActivity.class);
                 activity.startActivity(intent);
 
             }
         });
     }
+
+    class splashHandler implements Runnable {
+
+        boolean flag = false;
+
+        public void run() {
+            if (flag){
+                return;
+            }
+
+            Intent intent = new Intent(activity, RecipeMenuActivity.class);
+            startActivity(intent);
+            activity.finish();
+
+        }
+
+        public void stop() {
+            flag = true;
+        }
+    }
+
 }
