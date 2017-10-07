@@ -38,20 +38,8 @@ public class RecipeMenuActivity extends AppCompatActivity {
         // 触ってもらうクラスに処理を飛ばしています
         RecipeMenuLogic.instance().onCreate(activity);
 
-
         // idでbuttonを取得
         Button cookedButton = (Button)findViewById(R.id.recipeBtn1);
-        // レシピ選択ボタンのイベントを設定
-        cookedButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Recipe recipe = new Recipe();
-                recipe.recipeName = "オムレツ";
-                RecipeMenuLogic.instance().toRecipe(activity, recipe);
-                Log.v("Button","onClick");
-            }
-        });
-
 
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.list);

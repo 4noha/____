@@ -22,16 +22,6 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/recipeBtn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Omlet"
-        android:layout_below="@id/text_area"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list"
         android:layout_width="313dp"
