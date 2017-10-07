@@ -28,10 +28,12 @@
 
             <TextView
                 android:id="@+id/homeRecipe"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
                 android:gravity="top"
+                android:layout_gravity="center"
                 android:background="#ffffff"
+                android:alpha="0.7"
                 android:text="さんちの"
                 android:textAlignment="center"
                 android:textSize="18sp"
@@ -57,17 +59,20 @@
 
             <TextView
                 android:id="@+id/textView"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="材料名"
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/ingredient"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="350dp"
+                android:layout_height="77dp"
                 android:background="#ffffff"
+                android:layout_gravity="center"
+                android:alpha="0.7"
                 android:text="材料名body" />
 
             <EditText
@@ -79,16 +84,19 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:text="手順"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/process"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:background="#ffffff"
+                android:alpha="0.7"
                 android:text="手順body" />
 
             <EditText
