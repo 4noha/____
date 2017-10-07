@@ -1,5 +1,6 @@
 package com.dmm.noaki_takuya.internshipbaseapplication;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
-
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class ImHomeActivity extends AppCompatActivity {
@@ -34,11 +35,15 @@ public class ImHomeActivity extends AppCompatActivity {
         activity.setContentView(R.layout.activity_imhome);
 
 
+
+
         if (houseName == myHouse){
             // ただいま
             TextView textArea = (TextView)( activity.findViewById(R.id.text_area) );
             // 文字をせってい
             textArea.setText( "ただいま！");
+            textArea.setTextSize(50);
+
 
             ImageView imhomepage = (ImageView)( activity.findViewById(R.id.imhomepage) );
             // 文字をせってい
@@ -50,10 +55,12 @@ public class ImHomeActivity extends AppCompatActivity {
             TextView textArea = (TextView)( activity.findViewById(R.id.text_area) );
             // 文字をせってい
             textArea.setText("おじゃまします！" );
+            textArea.setTextSize(40);
 
             ImageView imhomepage = (ImageView)( activity.findViewById(R.id.imhomepage) );
             // 文字をせってい
             imhomepage.setImageResource(R.drawable.ojamashimasu);
+
         }
 
         Handler hdl = new Handler();
@@ -96,5 +103,12 @@ public class ImHomeActivity extends AppCompatActivity {
             flag = true;
         }
     }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    
 
 }
