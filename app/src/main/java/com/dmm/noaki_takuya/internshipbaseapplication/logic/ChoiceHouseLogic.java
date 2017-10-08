@@ -87,15 +87,15 @@ public class ChoiceHouseLogic {
         // 全てのデータの家を書き換え
         String beforeHouseName = ChoiceHouseLogic.instance().houseName;
         TreeMap<String, Recipe> menu = RecipeLogic.instance().houses.get(beforeHouseName);
-        RecipeLogic.instance().houses.remove(beforeHouseName);
-        RecipeLogic.instance().houses.put(houseNameStr, menu);
         for(Recipe recipe: menu.values()){
             recipe.houseName = houseNameStr;
-            menu.put(recipe.recipeName, recipe);
         }
+        RecipeLogic.instance().houses.remove(beforeHouseName);
+        RecipeLogic.instance().houses.put(houseNameStr, menu);
 
         // 現在の家の名前を書き換え
         ChoiceHouseLogic.instance().houseName = houseNameStr;
+        ChoiceHouseLogic.instance().houseNames = new ArrayList<>(RecipeLogic.instance().houses.keySet());
 
 
         // 表示設定
