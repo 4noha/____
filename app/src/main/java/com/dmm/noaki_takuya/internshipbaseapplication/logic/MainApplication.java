@@ -17,9 +17,20 @@ public class MainApplication extends Application {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                 .setFontAttrId(R.attr.fontPath)
                 .build());
-        RecipeLogic.instance().houses = Recipe.testDataLoading();
-        ChoiceHouseLogic.instance().houseName = "すぎやま家";
 
+        // テストデータ
+        ///*
+        RecipeLogic.instance().houses = Recipe.testDataLoading();
+        ChoiceHouseLogic.instance().houseName = "すぎやま";
+        ChoiceHouseLogic.instance().myHouse = "すぎやま";
+        //*/
+
+        // 初期データ
+        /*
+        RecipeLogic.instance().houses = Recipe.firstDataLoading();
+        ChoiceHouseLogic.instance().houseName = "わたし";
+        ChoiceHouseLogic.instance().myHouse = "わたし";
+        */
 
         super.onCreate();
     }
