@@ -28,15 +28,18 @@ public class MainApplication extends Application {
         ChoiceHouseLogic.instance().myHouse = "すぎやま";
         //*/
 
-        // 初期データ
+
         /*
-        if( !RecipeIO.load(this.getBaseContext()) ){
+        // 初期データ
+        if( !RecipeIO.load(this.getBaseContext()) ){ // ファイルからロードが成功しなければ初期データ入れる
             RecipeLogic.instance().houses = Recipe.firstDataLoading();
             ChoiceHouseLogic.instance().houseName = "わたし";
             ChoiceHouseLogic.instance().myHouse   = "わたし";
 
             // ファイル出力
             RecipeIO.save(this.getBaseContext());
+
+        // 自分の家判定
         } else {
             // myMenu = Trueのレシピがある家が自分の家
             for (String houseName: RecipeLogic.instance().houses.keySet()){
