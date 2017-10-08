@@ -1,6 +1,7 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
@@ -21,11 +22,11 @@ public class MainApplication extends Application {
                 .build());
 
         // テストデータ
-        /*
+        ///*
         RecipeLogic.instance().houses = Recipe.testDataLoading();
         ChoiceHouseLogic.instance().houseName = "すぎやま";
         ChoiceHouseLogic.instance().myHouse = "すぎやま";
-        */
+        //*/
 
         // 初期データ
         /*
