@@ -1,6 +1,7 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -67,9 +69,9 @@ public class RecipeIO {
     }
 
 
-    public static void save(Activity activity){
+    public static void save(Context context){
         // レシピファイルを作成
-        File sendFile = new File(activity.getCacheDir(), FILE_NAME);
+        File sendFile = new File(context.getCacheDir(), FILE_NAME);
 
         try {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(sendFile));
@@ -85,6 +87,32 @@ public class RecipeIO {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static boolean load(Context context){
+        // レシピファイルを作成
+        HashMap<String, TreeMap<String, Recipe>> houses = null;
+        File readFile = new File(context.getCacheDir(), FILE_NAME);
+
+        // レシピファイルを読み込み
+        try {
+            ObjectInputStream in = new ObjectInputStream(new FileInputStream(readFile));
+
+            // レシピの書き出し
+            houses = (HashMap<String, TreeMap<String, Recipe>>)in.readObject();
+            in.close();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (houses == null){
+            return false;
+        }
+        RecipeLogic.instance().houses = houses;
+
+        return true;
     }
 
 
