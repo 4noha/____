@@ -4,11 +4,18 @@ import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.HousePagerAdapter;
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
 import com.tmall.ultraviewpager.UltraViewPager;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -54,18 +61,54 @@ public class ChoiceHouseActivity extends AppCompatActivity{
 
 
 
-        // activityのどこをクリックしても家を選択したことになるイベントを設定
-        gesture = new GestureDetector(activity, new GestureDetector.SimpleOnGestureListener() {
+        // tapを解析するクラスのリスナーを作成
+        gesture = new GestureDetector(activity, new GestureDetector.OnGestureListener() {
+            // editモード
+            boolean isEdit;
+
+            @Override public boolean onDown(MotionEvent e) { return false; }
+            @Override public void onShowPress(MotionEvent e) { }
+            @Override public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) { return false; }
+            @Override public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) { return false; }
+
+
+            // activityのどこをクリックしても家を選択したことになるイベントを設定
             @Override
-            public boolean onSingleTapConfirmed(MotionEvent e) {
-                // pagerから要素番号を取得
-                int position = housePager.getCurrentItem();
-                // houseNamesから現在選択されている家の名前を取得
-                String houseName = ChoiceHouseLogic.instance().houseNames.get(position);
-                // RecipeMenuに遷移
-                ChoiceHouseLogic.instance().toHome(activity, houseName);
+            public boolean onSingleTapUp(MotionEvent e) {
+                
+                if (!isEdit){
+                    // pagerから要素番号を取得
+                    int position = housePager.getCurrentItem();
+                    // houseNamesから現在選択されている家の名前を取得
+                    String houseName = ChoiceHouseLogic.instance().houseNames.get(position);
+                    // RecipeMenuに遷移
+                    ChoiceHouseLogic.instance().toHome(activity, houseName);
+                } else {
+                    // EditViewにデリゲート
+                    EditText eHouseName = (EditText) ( activity.findViewById(R.id.pager_edit) );
+                    eHouseName.setFocusableInTouchMode(true);
+                    // キーボード呼び出し
+                    InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                    inputMethodManager.showSoftInput(eHouseName, 0);
+                }
 
                 return false;
+            }
+
+            // Edit
+            @Override
+            public void onLongPress(MotionEvent e) {
+                Log.w("hoge", "hoge");
+
+                if(isEdit){
+                    // 普通モード
+                    ChoiceHouseLogic.instance().goStandard(activity);
+                } else {
+                    // 編集モード
+                    ChoiceHouseLogic.instance().goEdit(activity);
+                }
+                isEdit = !isEdit;
+
             }
         });
     }
@@ -82,6 +125,7 @@ public class ChoiceHouseActivity extends AppCompatActivity{
     // Android UIではこういうことがよくあるのでUIの外部ライブラリは極力使いたくない。。。
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
+
         // Activity.dispatchTouchEventを呼んだことで逆にUltraPagerのdispatchTouchEventを殺さないように
         // ここで呼ぶ。ただActivityのEventなので普通に渡してしまうと画面のどこを操作してもイベントが走る
         housePager.dispatchTouchEvent(event);

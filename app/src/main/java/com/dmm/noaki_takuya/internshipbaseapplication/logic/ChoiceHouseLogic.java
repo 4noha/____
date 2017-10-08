@@ -1,13 +1,20 @@
 package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.ChoiceHouseActivity;
 import com.dmm.noaki_takuya.internshipbaseapplication.ImHomeActivity;
+import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.View.Splash;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 /**
  * Created by noaki-takuya on 2017/09/27.
@@ -41,5 +48,56 @@ public class ChoiceHouseLogic {
         // 次のActivityへの一時的な遷移(一方的な遷移はまた別の書き方があります)
         Intent intent = new Intent(activity, ImHomeActivity.class);
         activity.startActivity(intent);
+
+    }
+
+    // editモード
+    public void goEdit(Activity activity) {
+        // idでTextViewを取得
+        TextView houseName  = (TextView)( activity.findViewById(R.id.pager_textview) );
+        EditText eHouseName = (EditText) ( activity.findViewById(R.id.pager_edit) );
+        Log.v("aaaaaa", eHouseName.getText().toString());
+
+        // データ流し込み
+        eHouseName.setText(ChoiceHouseLogic.instance().houseName);
+
+
+        // 非表示設定
+        houseName.setVisibility(View.GONE);
+        eHouseName.setVisibility(View.VISIBLE);
+    }
+
+    // diseditモード
+    public void goStandard(Activity activity) {
+        // idでTextViewを取得
+        TextView houseName  = (TextView)( activity.findViewById(R.id.pager_textview) );
+        EditText eHouseName = (EditText) ( activity.findViewById(R.id.pager_edit) );
+
+
+        // データ流し込み
+        String houseNameStr = eHouseName.getText().toString();
+        houseName.setText(houseNameStr + "家");
+
+
+        // 全てのデータの家を書き換え
+        String beforeHouseName = ChoiceHouseLogic.instance().houseName;
+        TreeMap<String, Recipe> menu = RecipeLogic.instance().houses.get(beforeHouseName);
+        RecipeLogic.instance().houses.remove(beforeHouseName);
+        RecipeLogic.instance().houses.put(houseNameStr, menu);
+        for(Recipe recipe: menu.values()){
+            recipe.houseName = houseNameStr;
+            menu.put(recipe.recipeName, recipe);
+        }
+
+        // 現在の家の名前を書き換え
+        ChoiceHouseLogic.instance().houseName = houseNameStr;
+
+
+        // 表示設定
+        houseName.setVisibility(View.VISIBLE);
+        eHouseName.setVisibility(View.GONE);
+
+        // ファイル保存
+        RecipeIO.save(activity);
     }
 }

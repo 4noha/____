@@ -47,4 +47,14 @@
         tools:ignore="MissingPrefix"
         android:textColor="@android:color/darker_gray"
         android:textSize="50dp" />
+
+    <EditText
+        android:id="@+id/pager_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:text="名前Edit"
+        android:focusable="false"
+        android:visibility="gone" />
+
 </LinearLayout>
