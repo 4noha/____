@@ -12,63 +12,65 @@
         android:layout_height="match_parent"
         android:layout_width="match_parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dish" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_area"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ごちそうさまでした！"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        fontPath="fonts/HuiFont.ttf"
-        tools:ignore="MissingPrefix" />
+        <TextView
+            android:id="@+id/text_area"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ごちそうさまでした！"
+            android:textSize="35dp"
+            android:layout_above="@+id/imageView"
+            fontPath="fonts/HuiFont.ttf"
+            tools:ignore="MissingPrefix" />
 
-    <ImageButton
-        android:id="@+id/to_mail"
-        android:layout_width="98dp"
-        android:layout_height="98dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitXY"
-        android:background="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/mail"
-        tools:layout_editor_absoluteY="405dp"
-        tools:layout_editor_absoluteX="278dp" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            app:srcCompat="@drawable/dish" />
 
-    <ImageButton
-        android:id="@+id/edit"
-        android:layout_width="96dp"
-        android:layout_height="92dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="fitXY"
-        android:background="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/top"
-        tools:layout_editor_absoluteY="411dp" />
+    </RelativeLayout>
+
+        <ImageButton
+            android:id="@+id/to_mail"
+            android:layout_width="98dp"
+            android:layout_height="98dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitXY"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/mail"
+            tools:layout_editor_absoluteY="405dp"
+            tools:layout_editor_absoluteX="278dp" />
+
+        <ImageButton
+            android:id="@+id/edit"
+            android:layout_width="96dp"
+            android:layout_height="92dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="fitXY"
+            android:background="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/top"
+            tools:layout_editor_absoluteY="411dp" />
 
 
 </android.support.constraint.ConstraintLayout>
