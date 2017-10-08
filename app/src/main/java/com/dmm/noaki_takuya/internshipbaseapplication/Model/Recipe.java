@@ -160,7 +160,7 @@ public class Recipe implements Serializable {
 
         recipe     = new Recipe();
         recipe.myMenu     = true;
-        recipe.houseName  = "わたし";
+        recipe.houseName  = "すぎやま";
         recipe.recipeName = "あたらしいレシピ";
         recipe.ingredient   = "材料をかいてね";
         recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
