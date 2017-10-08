@@ -39,7 +39,7 @@ public class RecipeIO {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(sendFile));
 
             Recipe recipe = RecipeMenuLogic.instance().recipe;
-            HashMap<String, TreeMap<String, Recipe>> houses = new HashMap<>();
+            TreeMap<String, TreeMap<String, Recipe>> houses = new TreeMap<>();
             TreeMap<String, Recipe> menu                    = new TreeMap<>();
             menu.put(recipe.recipeName, recipe);
             houses.put(recipe.houseName, menu);
@@ -77,7 +77,7 @@ public class RecipeIO {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(sendFile));
 
             // 全てのレシピを取得
-            HashMap<String, TreeMap<String, Recipe>> houses = RecipeLogic.houses;
+            TreeMap<String, TreeMap<String, Recipe>> houses = RecipeLogic.houses;
 
             // 書き出し
             out.writeObject(houses);
@@ -92,7 +92,7 @@ public class RecipeIO {
 
     public static boolean load(Context context){
         // レシピファイルを作成
-        HashMap<String, TreeMap<String, Recipe>> houses = null;
+        TreeMap<String, TreeMap<String, Recipe>> houses = null;
         File readFile = new File(context.getCacheDir(), FILE_NAME);
 
         // レシピファイルを読み込み
@@ -100,7 +100,7 @@ public class RecipeIO {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream(readFile));
 
             // レシピの書き出し
-            houses = (HashMap<String, TreeMap<String, Recipe>>)in.readObject();
+            houses = (TreeMap<String, TreeMap<String, Recipe>>)in.readObject();
             in.close();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -130,7 +130,7 @@ public class RecipeIO {
                 Bundle extras = intent.getExtras();
                 if (extras != null) {
                     Uri uri = extras.getParcelable(Intent.EXTRA_STREAM);
-                    HashMap<String, TreeMap<String, Recipe>> houses = null;
+                    TreeMap<String, TreeMap<String, Recipe>> houses = null;
                     TreeMap<String, Recipe> menu;
                     Recipe recipe = null;
 
@@ -150,7 +150,7 @@ public class RecipeIO {
                         ObjectInputStream in = new ObjectInputStream(inStream);
 
                         // レシピの書き出し
-                        houses = (HashMap<String, TreeMap<String, Recipe>>)in.readObject();
+                        houses = (TreeMap<String, TreeMap<String, Recipe>>)in.readObject();
                         in.close();
                     } catch (ClassNotFoundException e) {
                         e.printStackTrace();
@@ -180,7 +180,7 @@ public class RecipeIO {
                             // バックアップ読み込み
                         }
                         Log.w("data", houses.keySet().toString());
-                        // houses = new HashMap<>();
+                        // houses = new TreeMap<>();
                     }
 
                     // Failed

@@ -25,9 +25,9 @@ public class Recipe implements Serializable {
     /// テストデータ流し込み
     ///////////////////////////
 
-    public static HashMap<String, TreeMap<String, Recipe> > testDataLoading(){
+    public static TreeMap<String, TreeMap<String, Recipe> > testDataLoading(){
 
-        HashMap<String, TreeMap<String, Recipe> > houses = new HashMap<>();
+        TreeMap<String, TreeMap<String, Recipe> > houses = new TreeMap<>();
 
 
         TreeMap<String, Recipe> menu = new TreeMap<>();
@@ -259,9 +259,9 @@ public class Recipe implements Serializable {
     /// 初期データ流し込み
     ///////////////////////////
 
-    public static HashMap<String, TreeMap<String, Recipe> > firstDataLoading(){
+    public static TreeMap<String, TreeMap<String, Recipe> > firstDataLoading(){
 
-        HashMap<String, TreeMap<String, Recipe> > houses = new HashMap<>();
+        TreeMap<String, TreeMap<String, Recipe> > houses = new TreeMap<>();
         TreeMap<String, Recipe> menu = new TreeMap<>();
         Recipe recipe     = new Recipe();
 

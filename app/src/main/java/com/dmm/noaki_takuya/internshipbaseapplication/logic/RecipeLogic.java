@@ -34,7 +34,7 @@ public class RecipeLogic {
     // Houses("家名")
     //    |- Menu("レシピ名")
     //         |- Recipeクラス
-    public static HashMap<String, TreeMap<String, Recipe>> houses = new HashMap<>();// テストデータ流す
+    public static TreeMap<String, TreeMap<String, Recipe>> houses = new TreeMap<>();// テストデータ流す
 
     public void onCreate(RecipeActivity activity){
         // activity_recipe.xmlのデザインをActivityに読み込み
