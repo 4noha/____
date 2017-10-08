@@ -158,13 +158,14 @@ public class Recipe implements Serializable {
         recipe.imageId    = R.drawable.f_ton;
         menu.put(recipe.recipeName, recipe);
 
-        recipe     = new Recipe();
+        recipe            = new Recipe();
         recipe.myMenu     = true;
         recipe.houseName  = "すぎやま";
         recipe.recipeName = "あたらしいレシピ";
         recipe.ingredient   = "材料をかいてね";
         recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
         recipe.imageId    = R.drawable.f_cake;
+        menu.put(recipe.recipeName, recipe);
 
         houses.put(recipe.houseName, menu);
 
@@ -267,8 +268,8 @@ public class Recipe implements Serializable {
         recipe.myMenu     = true;
         recipe.houseName  = "わたし";
         recipe.recipeName = "あたらしいレシピ";
-        recipe.ingredient   = "材料をかいてね";
-        recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
+        recipe.ingredient = "材料をかいてね";
+        recipe.prosess    = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
         recipe.imageId    = R.drawable.f_cake;
 
         menu.put(recipe.recipeName, recipe);

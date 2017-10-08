@@ -2,6 +2,7 @@ package com.dmm.noaki_takuya.internshipbaseapplication.logic;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -136,35 +137,57 @@ public class RecipeLogic {
         EditText eIngredient  = (EditText)( activity.findViewById(R.id.eIngredient) );
         EditText eProcess     = (EditText)( activity.findViewById(R.id.eProcess) );
 
+
         // editされていた場合、新しいレシピを追加
         Recipe recipe = RecipeMenuLogic.instance().recipe;
-        if(     recipe.equals("新しいレシピ") &&
-                recipe.recipeName.equals(eHomeRecipe.getText().toString()) ){
-            Recipe new_recipe = new Recipe();
-            new_recipe.myMenu     = true;
-            new_recipe.houseName  = "わたし";
-            new_recipe.recipeName = "あたらしいレシピ";
-            new_recipe.ingredient   = "材料をかいてね";
-            new_recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
-            new_recipe.imageId    = R.drawable.f_cake;
+        TreeMap<String, Recipe> menu = RecipeLogic.houses.get(recipe.houseName);
 
-            RecipeLogic.houses.get(recipe.houseName).put(new_recipe.recipeName, new_recipe);
+        // レシピ名を取得
+        String recipeName = eHomeRecipe.getText().toString();
+
+        Recipe new_recipe = null;
+        if( !recipe.recipeName.equals(recipeName) ){
+
+            new_recipe            = new Recipe();
+            new_recipe.myMenu     = true;
+            new_recipe.houseName  = recipe.houseName;
+
+            // 新しいレシピのとき
+            if(recipe.recipeName.equals("あたらしいレシピ")){
+                new_recipe.recipeName = "あたらしいレシピ";
+                new_recipe.ingredient = "材料をかいてね";
+                new_recipe.prosess    = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
+                new_recipe.imageId    = R.drawable.f_cake;
+
+                menu.put(recipeName, recipe);
+            } else {
+                new_recipe.recipeName = recipeName;
+                new_recipe.ingredient = eIngredient.getText().toString();
+                new_recipe.prosess = eProcess.getText().toString();
+                new_recipe.imageId    = R.drawable.f_cake;
+
+                menu.remove(recipe.recipeName);
+            }
+
+            menu.put(new_recipe.recipeName, new_recipe);
         }
-        // レシピを保存
-        RecipeLogic.houses.get(recipe.houseName).put(recipe.recipeName, recipe);
+
+
+        // データ流し込み
+        recipe.houseName  = ChoiceHouseLogic.instance().myHouse;
+        recipe.recipeName = recipeName;
+        recipe.ingredient = eIngredient.getText().toString();
+        recipe.prosess = eProcess.getText().toString();
+
+
+        homeRecipe.setText(recipe.houseName + "さんちの" + recipe.recipeName);
+        ingredient.setText(recipe.ingredient);
+        process.setText(recipe.prosess);
 
         // フォーカスできなくする
         eHomeRecipe.setFocusable(false);
         eIngredient.setFocusable(false);
         eProcess.setFocusable(false);
-
-        // データ流し込み
-        recipe.recipeName = eHomeRecipe.getText().toString();
-        recipe.ingredient = eIngredient.getText().toString();
-        recipe.prosess = eProcess.getText().toString();
-        homeRecipe.setText(recipe.houseName + "さんちの" + recipe.recipeName);
-        ingredient.setText(recipe.ingredient);
-        process.setText(recipe.prosess);
 
 
         // 表示設定
@@ -177,5 +200,7 @@ public class RecipeLogic {
 
         // ファイル保存
         RecipeIO.save(activity);
+
+        Log.w("aaa", RecipeLogic.houses.get(recipe.houseName).keySet().toString());
     }
 }

@@ -15,6 +15,8 @@ import android.widget.ImageButton;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
 import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeLogic;
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.RecipeMenuLogic;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class RecipeActivity extends AppCompatActivity {
