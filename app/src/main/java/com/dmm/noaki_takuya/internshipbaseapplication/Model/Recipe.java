@@ -2,7 +2,6 @@ package com.dmm.noaki_takuya.internshipbaseapplication.Model;
 
 
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
-import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -262,7 +261,7 @@ public class Recipe implements Serializable {
         recipe.recipeName = "あたらしいレシピ";
         recipe.ingredient   = "材料をかいてね";
         recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
-        recipe.imageId    = R.drawable.cake;
+        recipe.imageId    = R.drawable.f_cake;
 
         menu.put(recipe.recipeName, recipe);
         houses.put(recipe.houseName, menu);
