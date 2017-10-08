@@ -158,6 +158,14 @@ public class Recipe implements Serializable {
         recipe.imageId    = R.drawable.f_ton;
         menu.put(recipe.recipeName, recipe);
 
+        recipe     = new Recipe();
+        recipe.myMenu     = true;
+        recipe.houseName  = "わたし";
+        recipe.recipeName = "あたらしいレシピ";
+        recipe.ingredient   = "材料をかいてね";
+        recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
+        recipe.imageId    = R.drawable.f_cake;
+
         houses.put(recipe.houseName, menu);
 
 
@@ -173,7 +181,7 @@ public class Recipe implements Serializable {
         menu.put(recipe.recipeName, recipe);
 
         recipe            = new Recipe();
-        recipe.myMenu     = true;
+        recipe.myMenu     = false;
         recipe.houseName  = "えびたに";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
@@ -182,7 +190,7 @@ public class Recipe implements Serializable {
         menu.put(recipe.recipeName, recipe);
 
         recipe            = new Recipe();
-        recipe.myMenu     = true;
+        recipe.myMenu     = false;
         recipe.houseName  = "えびたに";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
@@ -191,7 +199,7 @@ public class Recipe implements Serializable {
         menu.put(recipe.recipeName, recipe);
 
         recipe            = new Recipe();
-        recipe.myMenu     = true;
+        recipe.myMenu     = false;
         recipe.houseName  = "えびたに";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
@@ -214,7 +222,7 @@ public class Recipe implements Serializable {
         menu.put(recipe.recipeName, recipe);
 
         recipe            = new Recipe();
-        recipe.myMenu     = true;
+        recipe.myMenu     = false;
         recipe.houseName  = "やまさき";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
@@ -223,7 +231,7 @@ public class Recipe implements Serializable {
         menu.put(recipe.recipeName, recipe);
 
         recipe            = new Recipe();
-        recipe.myMenu     = true;
+        recipe.myMenu     = false;
         recipe.houseName  = "やまさき";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
@@ -232,7 +240,7 @@ public class Recipe implements Serializable {
         menu.put(recipe.recipeName, recipe);
 
         recipe            = new Recipe();
-        recipe.myMenu     = true;
+        recipe.myMenu     = false;
         recipe.houseName  = "やまさき";
         recipe.ingredient   = "卵、砂糖、醤油";
         recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";

@@ -136,6 +136,22 @@ public class RecipeLogic {
         EditText eIngredient  = (EditText)( activity.findViewById(R.id.eIngredient) );
         EditText eProcess     = (EditText)( activity.findViewById(R.id.eProcess) );
 
+        // editされていた場合、新しいレシピを追加
+        Recipe recipe = RecipeMenuLogic.instance().recipe;
+        if(     recipe.equals("新しいレシピ") &&
+                recipe.recipeName.equals(eHomeRecipe.getText().toString()) ){
+            Recipe new_recipe = new Recipe();
+            new_recipe.myMenu     = true;
+            new_recipe.houseName  = "わたし";
+            new_recipe.recipeName = "あたらしいレシピ";
+            new_recipe.ingredient   = "材料をかいてね";
+            new_recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
+            new_recipe.imageId    = R.drawable.f_cake;
+
+            RecipeLogic.houses.get(recipe.houseName).put(new_recipe.recipeName, new_recipe);
+        }
+        // レシピを保存
+        RecipeLogic.houses.get(recipe.houseName).put(recipe.recipeName, recipe);
 
         // フォーカスできなくする
         eHomeRecipe.setFocusable(false);
