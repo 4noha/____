@@ -36,40 +36,39 @@
 
     <ImageButton
         android:id="@+id/to_mail"
-        android:background="#888"
-        android:layout_width="104dp"
-        android:layout_height="100dp"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
         android:layout_marginBottom="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:scaleType="fitXY"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/mail"
-        tools:layout_editor_absoluteX="272dp" />
+        tools:layout_editor_absoluteY="405dp"
+        tools:layout_editor_absoluteX="278dp" />
 
     <ImageButton
         android:id="@+id/edit"
-        android:background="#888"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="96dp"
+        android:layout_height="92dp"
         android:layout_marginBottom="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:scaleType="fitXY"
+        android:background="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/back" />
+        app:srcCompat="@drawable/top"
+        tools:layout_editor_absoluteY="411dp" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -125,33 +125,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/cooked"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentBottom="true"
-                    android:layout_below="@id/text_area"
-                    android:layout_centerInParent="true"
-                    android:text="できたよ" />
-
                 <ImageButton
                     android:id="@+id/edit"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="fitXY"
-                    app:srcCompat="@drawable/back"
+                    android:layout_width="96dp"
+                    android:layout_height="92dp"
                     android:layout_alignParentBottom="true"
-                    android:layout_alignParentStart="true" />
+                    android:layout_alignParentStart="true"
+                    android:layout_alignTop="@+id/food"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    app:srcCompat="@drawable/back" />
 
                 <ImageButton
                     android:id="@+id/share"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_alignTop="@+id/edit"
+                    android:layout_alignTop="@+id/food"
                     android:scaleType="fitXY"
+                    android:background="@null"
                     app:srcCompat="@drawable/share" />
+
+
+                <ImageButton
+                    android:id="@+id/food"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+
+                    app:srcCompat="@drawable/food"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true" />
 
             </RelativeLayout>
 

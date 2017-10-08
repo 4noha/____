@@ -73,7 +73,7 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         // できたよボタン
-        Button cookedButton = (Button)findViewById(R.id.cooked);
+        ImageButton cookedButton = (ImageButton)findViewById(R.id.food);
         cookedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
