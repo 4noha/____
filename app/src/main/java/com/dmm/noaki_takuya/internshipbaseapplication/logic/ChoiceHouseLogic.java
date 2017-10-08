@@ -56,7 +56,10 @@ public class ChoiceHouseLogic {
         // idでTextViewを取得
         TextView houseName  = (TextView)( activity.findViewById(R.id.pager_textview) );
         EditText eHouseName = (EditText) ( activity.findViewById(R.id.pager_edit) );
-        Log.v("aaaaaa", eHouseName.getText().toString());
+
+        // フォーカスできなくしたのを解除
+        eHouseName.setFocusable(true);
+        eHouseName.setFocusableInTouchMode(true);
 
         // データ流し込み
         eHouseName.setText(ChoiceHouseLogic.instance().houseName);
@@ -73,6 +76,8 @@ public class ChoiceHouseLogic {
         TextView houseName  = (TextView)( activity.findViewById(R.id.pager_textview) );
         EditText eHouseName = (EditText) ( activity.findViewById(R.id.pager_edit) );
 
+        // フォーカスできなくする
+        eHouseName.setFocusable(false);
 
         // データ流し込み
         String houseNameStr = eHouseName.getText().toString();

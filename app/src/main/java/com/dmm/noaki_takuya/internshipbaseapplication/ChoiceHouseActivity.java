@@ -86,6 +86,8 @@ public class ChoiceHouseActivity extends AppCompatActivity{
                 } else {
                     // EditViewにデリゲート
                     EditText eHouseName = (EditText) ( activity.findViewById(R.id.pager_edit) );
+                    eHouseName.setFocusable(true);
+                    eHouseName.setTextIsSelectable(true);
                     eHouseName.setFocusableInTouchMode(true);
                     // キーボード呼び出し
                     InputMethodManager inputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);

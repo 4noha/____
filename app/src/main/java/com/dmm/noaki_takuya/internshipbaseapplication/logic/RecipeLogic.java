@@ -102,6 +102,14 @@ public class RecipeLogic {
         EditText eIngredient  = (EditText)( activity.findViewById(R.id.eIngredient) );
         EditText eProcess     = (EditText)( activity.findViewById(R.id.eProcess) );
 
+        // フォーカスできなくしたのを解除
+        eHomeRecipe.setFocusable(true);
+        eIngredient.setFocusable(true);
+        eProcess.setFocusable(true);
+        eHomeRecipe.setFocusableInTouchMode(true);
+        eIngredient.setFocusableInTouchMode(true);
+        eProcess.setFocusableInTouchMode(true);
+
         // データ流し込み
         Recipe recipe = RecipeMenuLogic.instance().recipe;
         eHomeRecipe.setText(recipe.recipeName);
@@ -129,8 +137,12 @@ public class RecipeLogic {
         EditText eProcess     = (EditText)( activity.findViewById(R.id.eProcess) );
 
 
+        // フォーカスできなくする
+        eHomeRecipe.setFocusable(false);
+        eIngredient.setFocusable(false);
+        eProcess.setFocusable(false);
+
         // データ流し込み
-        Recipe recipe = RecipeMenuLogic.instance().recipe;
         recipe.recipeName = eHomeRecipe.getText().toString();
         recipe.ingredient = eIngredient.getText().toString();
         recipe.prosess = eProcess.getText().toString();
