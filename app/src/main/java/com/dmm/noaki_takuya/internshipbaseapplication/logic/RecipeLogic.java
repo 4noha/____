@@ -45,7 +45,7 @@ public class RecipeLogic {
         // Gmail->Preview->ファイル送信のインテント
         if (Intent.ACTION_SEND.equals(action)) {
             // レシピ読み込み処理
-            RecipeIO.receiveRecipeIntent(intent);
+            RecipeIO.receiveRecipeIntent(activity);
             Toast.makeText(activity, "レシピを保存しました！", Toast.LENGTH_LONG).show();
         }
 
@@ -146,5 +146,8 @@ public class RecipeLogic {
         eHomeRecipe.setVisibility(View.GONE);
         eIngredient.setVisibility(View.GONE);
         eProcess.setVisibility(View.GONE);
+
+        // ファイル保存
+        RecipeIO.save(activity);
     }
 }

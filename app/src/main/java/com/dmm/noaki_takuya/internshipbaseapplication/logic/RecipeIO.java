@@ -5,15 +5,17 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.FileProvider;
+import android.util.Log;
 
 import com.dmm.noaki_takuya.internshipbaseapplication.Model.Recipe;
-import com.dmm.noaki_takuya.internshipbaseapplication.R;
 import com.dmm.noaki_takuya.internshipbaseapplication.RecipeActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.TreeMap;
@@ -35,8 +37,8 @@ public class RecipeIO {
             ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(sendFile));
 
             Recipe recipe = RecipeMenuLogic.instance().recipe;
-            HashMap<String, HashMap<String, Recipe>> houses = new HashMap<>();
-            HashMap<String, Recipe> menu                    = new HashMap<>();
+            HashMap<String, TreeMap<String, Recipe>> houses = new HashMap<>();
+            TreeMap<String, Recipe> menu                    = new TreeMap<>();
             menu.put(recipe.recipeName, recipe);
             houses.put(recipe.houseName, menu);
 
@@ -57,7 +59,6 @@ public class RecipeIO {
 
         // メール送信インテントの作成
         intent.setAction(Intent.ACTION_SEND);
-        //intent.putExtra(Intent.EXTRA_EMAIL, new String[] {"test@exsample.com"});
         intent.putExtra(Intent.EXTRA_SUBJECT, "レシピの共有");
         intent.putExtra(Intent.EXTRA_TEXT, "test");
         intent.setType("text/plain");
@@ -66,7 +67,7 @@ public class RecipeIO {
     }
 
 
-    public void save(Activity activity){
+    public static void save(Activity activity){
         // レシピファイルを作成
         File sendFile = new File(activity.getCacheDir(), FILE_NAME);
 
@@ -87,7 +88,8 @@ public class RecipeIO {
     }
 
 
-    public static void receiveRecipeIntent(Intent intent){
+    public static void receiveRecipeIntent(Activity activity){
+        Intent intent = activity.getIntent();
         String action   = intent.getAction();
         String mimeType = intent.getType();
 
@@ -100,8 +102,9 @@ public class RecipeIO {
                 Bundle extras = intent.getExtras();
                 if (extras != null) {
                     Uri uri = extras.getParcelable(Intent.EXTRA_STREAM);
-
-
+                    HashMap<String, TreeMap<String, Recipe>> houses = null;
+                    TreeMap<String, Recipe> menu;
+                    Recipe recipe = null;
 
 
                     // myMenu = Trueのレシピがある家が自分の家
@@ -113,22 +116,48 @@ public class RecipeIO {
                         }
                     }
 
+                    // レシピファイルを読み込み
+                    try {
+                        InputStream inStream = activity.getContentResolver().openInputStream(uri);
+                        ObjectInputStream in = new ObjectInputStream(inStream);
 
-                    TreeMap<String, Recipe> menu;
+                        // レシピの書き出し
+                        houses = (HashMap<String, TreeMap<String, Recipe>>)in.readObject();
+                        in.close();
+                    } catch (ClassNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    if(houses != null){
+                        String[] aryName = houses.keySet().toArray(new String[houses.size()]);
 
-                    // テストデータ
-                    Recipe recipe     = new Recipe();
-                    recipe.myMenu     = true;
-                    recipe.houseName  = "すぎやま";
-                    recipe.ingredient   = "卵、砂糖、醤油";
-                    recipe.prosess   = "1 卵を割ります。 \n2 \n3 \n4 \n5 \n6 \n7 \n8 ";
-                    recipe.recipeName = "オムレツ";
-                    recipe.imageId    = R.drawable.cake;
-                    //
+                        if(aryName.length == 1){
+                            TreeMap<String, Recipe> menu_ = houses.get(aryName[0]);
+                            String[] recipeNames = menu_.keySet().toArray(new String[menu_.size()]);
 
-                    // ファイル読み込み
-                    if(recipe.houseName.equals(ChoiceHouseLogic.instance().myHouse)){
-                        recipe.myMenu = true;
+                            // レシピ単体インポート
+                            if(recipeNames.length == 1){
+                                recipe = menu_.get(recipeNames[0]);
+
+                                // ファイル読み込み
+                                if(recipe.houseName.equals(ChoiceHouseLogic.instance().myHouse)){
+                                    recipe.myMenu = true;
+                                } else {
+                                    recipe.myMenu = false;
+                                }
+                            }
+
+                        } else {
+                            // バックアップ読み込み
+                        }
+                        Log.w("data", houses.keySet().toString());
+                        // houses = new HashMap<>();
+                    }
+
+                    // Failed
+                    if(recipe == null){
+                        return;
                     }
 
                     // OO家のメニューを取得、なければ追加
@@ -142,6 +171,9 @@ public class RecipeIO {
                     ChoiceHouseLogic.instance().houseName = recipe.houseName;
                     RecipeLogic.houses.put(recipe.houseName, menu);
                     RecipeMenuLogic.instance().recipe = recipe;
+
+                    // ファイル出力
+                    save(activity);
                 }
             }
         }
