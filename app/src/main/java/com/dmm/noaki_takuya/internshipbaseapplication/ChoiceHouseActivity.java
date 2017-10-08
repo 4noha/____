@@ -75,7 +75,7 @@ public class ChoiceHouseActivity extends AppCompatActivity{
             // activityのどこをクリックしても家を選択したことになるイベントを設定
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
-                
+
                 if (!isEdit){
                     // pagerから要素番号を取得
                     int position = housePager.getCurrentItem();

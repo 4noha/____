@@ -23,7 +23,7 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@id/top_image"
         android:textSize="50sp"
-        android:text="たいとる"
+        android:text="れしぴ"
         fontPath="fonts/HuiFont.ttf"
         tools:ignore="MissingPrefix" />
 
