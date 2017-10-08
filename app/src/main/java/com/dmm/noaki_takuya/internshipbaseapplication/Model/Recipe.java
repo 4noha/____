@@ -2,6 +2,7 @@ package com.dmm.noaki_takuya.internshipbaseapplication.Model;
 
 
 import com.dmm.noaki_takuya.internshipbaseapplication.R;
+import com.dmm.noaki_takuya.internshipbaseapplication.logic.ChoiceHouseLogic;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -240,6 +241,30 @@ public class Recipe implements Serializable {
         recipe.imageId    = R.drawable.f_salada;
         menu.put(recipe.recipeName, recipe);
 
+        houses.put(recipe.houseName, menu);
+
+        return houses;
+    }
+
+
+    ///////////////////////////
+    /// 初期データ流し込み
+    ///////////////////////////
+
+    public static HashMap<String, TreeMap<String, Recipe> > firstDataLoading(){
+
+        HashMap<String, TreeMap<String, Recipe> > houses = new HashMap<>();
+        TreeMap<String, Recipe> menu = new TreeMap<>();
+        Recipe recipe     = new Recipe();
+
+        recipe.myMenu     = true;
+        recipe.houseName  = "わたし";
+        recipe.recipeName = "あたらしいレシピ";
+        recipe.ingredient   = "材料をかいてね";
+        recipe.prosess   = "1 レシピの名前をいれる \n2 材料の名前をいれる \n3 手順をいれてね";
+        recipe.imageId    = R.drawable.cake;
+
+        menu.put(recipe.recipeName, recipe);
         houses.put(recipe.houseName, menu);
 
         return houses;
