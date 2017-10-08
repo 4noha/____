@@ -5,7 +5,8 @@
     android:id="@+id/splash_layout"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff" >
 
     <ImageView
         android:id="@+id/top_image"
@@ -13,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:adjustViewBounds="true"
-        android:background="#ffffff"
         android:scaleType="fitEnd"
         app:srcCompat="@drawable/top_image" />
 
