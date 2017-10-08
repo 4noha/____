@@ -2,6 +2,7 @@ package com.dmm.noaki_takuya.internshipbaseapplication;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -89,6 +90,8 @@ public class RecipeMenuActivity extends AppCompatActivity {
             Recipe recipe= mItemList.get(position);
             final TextView textItem = (TextView) holder.itemView.findViewById(R.id.itemText);
             textItem.setText(recipe.recipeName);
+            Typeface mTypeface = Typeface.createFromAsset(activity.getAssets(), "fonts/HuiFont.ttf");
+            textItem.setTypeface(mTypeface);
 
             final ImageView imageView = (ImageView) holder.itemView.findViewById(R.id.itemImage);
             imageView.setImageResource(recipe.imageId);
