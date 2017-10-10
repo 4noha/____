@@ -34,6 +34,12 @@ public class BackgroundView extends View {
     // このビューのサイズや位置を決める
     @Override
     public void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+
+        // プログラムがAndroid Studioのデザイナに非対応でデザイナが落ちるのを回避
+        if (this.isInEditMode()){
+            return;
+        }
+
         // 端末の画面サイズ呼び出し
         Point displaySize = new Point();
         this.getDisplay().getSize(displaySize);
@@ -46,6 +52,11 @@ public class BackgroundView extends View {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);
+
+        // プログラムがAndroid Studioのデザイナに非対応でデザイナが落ちるのを回避
+        if (this.isInEditMode()){
+            return;
+        }
 
         // 解像度が変わったとき(画面回転など)
         if(changed) {
@@ -71,10 +82,17 @@ public class BackgroundView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        // 画像が見つからなければ描画しない
-        if(bitmap == null) return;
 
+        // プログラムがAndroid Studioのデザイナに非対応でデザイナが落ちるのを回避
+        if (this.isInEditMode()){
+            return;
+        }
+        super.onDraw(canvas);
+
+        // 画像が見つからなければ描画しない
+        if (bitmap == null) return;
+
+        // ポイントが画面外に出るまで壁紙画像をリピートする
         Point position = new Point(0, 0);
         while(position.y < this.getHeight()) {
             canvas.drawBitmap(bitmap, 0, position.y, paint);
